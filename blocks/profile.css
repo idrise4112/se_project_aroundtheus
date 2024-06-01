@@ -23,7 +23,7 @@
     "title button"
     "description description";
   align-items: center;
-  grid-template-columns: minmax(auto, 373px) auto;
+  grid-template-columns: minmax(auto, 620px) auto;
 }
 
 .profile__edit-button {
