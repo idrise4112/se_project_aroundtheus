@@ -40,6 +40,12 @@
   border: none;
 }
 
+.card__like-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+}
+
 .card__title {
   font-family: "Inter", Arial, sans-serif;
   font-weight: 900;

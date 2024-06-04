@@ -11,6 +11,11 @@
   }
 }
 
+@media screen and (max-width: 800px) {
+  .profile {
+  }
+}
+
 .profile {
   display: flex;
   align-items: center;
@@ -37,12 +42,25 @@
   border: 1px solid white;
 }
 
+.profile__edit-button:hover {
+  background-color: #f0f0f0;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 60%;
+}
+
 .profile__add-button {
   background: transparent url(../images/AddButton.svg) center no-repeat;
   width: 150px;
   height: 50px;
   margin: 0;
   border: 2px solid white;
+}
+
+.profile__add-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
 }
 
 .profile__title {
