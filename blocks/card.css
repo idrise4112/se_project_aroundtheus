@@ -3,11 +3,10 @@
   flex-direction: column;
   border-radius: 10px;
   list-style-type: none;
-  border-radius: 10px;
   overflow: hidden;
 }
 
-.card__list {
+.cards__list {
   display: grid;
   justify-content: center;
   grid-template-columns: repeat(auto-fit, 282px);
@@ -38,6 +37,7 @@
   background: transparent url(../images/likebutton.svg) center no-repeat;
   width: 21px;
   height: 18px;
+  border: none;
 }
 
 .card__title {

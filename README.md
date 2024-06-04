@@ -8,7 +8,7 @@ tablect, computer, and mobile device.
 The figma design also has images and buttons that were downloaded from the original design and were converted, so the project would have enough space.
 Fonts were also linked to the css.
 
--[ Link to the project git@github.com:idrise4112/se_project_aroundtheus.git}
+-[ Link to the project https://idrise4112.github.io/se_project_aroundtheus/
 
 ![alt text]./images/demo/image.png}
 
