@@ -24,8 +24,8 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    padding-left: 62px;
-    padding-right: 62px;
+    justify-content: center;
+    width: 282px;
   }
 }
 
