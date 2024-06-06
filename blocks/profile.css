@@ -38,6 +38,7 @@
   width: 24px;
   grid-area: button;
   border: 1px solid white;
+  margin-left: 36px;
 }
 
 .profile__edit-button:hover {
@@ -84,6 +85,8 @@
   line-height: 22px;
   grid-area: description;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .profile__image {
