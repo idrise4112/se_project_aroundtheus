@@ -6,18 +6,9 @@
   overflow: hidden;
 }
 
-.cards__list {
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 20px 17px;
-  padding: 0;
-  margin: 0;
-}
-
 .card__image {
   width: 282px;
-  height: 361px;
+  height: 282px;
 }
 
 .card__description {
@@ -37,8 +28,7 @@
 }
 
 .card__like-button:hover {
-  opacity: 60%;
-  color: #333;
+  opacity: 0.5;
   cursor: pointer;
 }
 
@@ -49,4 +39,7 @@
   white-space: nowrap;
   overflow: hidden;
   margin: 0;
+  font-size: 24px;
+  line-height: 29.05px;
+  text-align: left;
 }
