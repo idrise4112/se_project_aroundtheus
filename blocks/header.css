@@ -4,3 +4,12 @@
   padding-bottom: 41px;
   padding-top: 119px;
 }
+
+@media screen and (max-width: 320px) {
+  .header {
+    box-sizing: border-box;
+    padding: 28px 0 32px 27px;
+    margin: 0;
+    width: 100%;
+  }
+}
