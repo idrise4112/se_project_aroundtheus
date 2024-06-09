@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   padding-top: 40px;
+  align-items: flex-start;
 }
 
 @media screen and (max-width: 620px) {
@@ -20,6 +21,10 @@
 }
 
 @media screen and (max-width: 620px) {
+  .profile {
+    align-items: baseline;
+  }
+
   .profile__info {
     display: flex;
     flex-wrap: wrap;
@@ -46,7 +51,13 @@
   width: 24px;
   grid-area: button;
   border: 1px solid white;
-  margin-left: 36px;
+  margin-left: 15px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__edit-button {
+    margin-left: 15px;
+  }
 }
 
 .profile__edit-button:hover {
@@ -78,8 +89,8 @@
 
 .profile__title {
   font-family: "Inter", Arial, sans-serif;
-  font-size: 42px;
-  line-height: 48px;
+  font-size: 22px;
+  line-height: 26px;
   font-weight: 500;
   grid-area: title;
   margin: 0;
@@ -89,16 +100,28 @@
   max-width: 375px;
 }
 
+@media screen and (max-width: 320px) {
+  .profile__title {
+    min-width: 201px;
+    max-width: 222px;
+  }
+}
+
 .profile__description {
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
   grid-area: description;
-  margin: 0;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  width: 373px;
+  margin-bottom: 22px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__description {
+    margin-bottom: 26px;
+  }
 }
 
 .profile__image {
@@ -108,4 +131,10 @@
   object-fit: cover;
   background-position: center;
   margin-right: 24px;
+}
+
+@media screen and (max-width: 320px) {
+  .profile__image {
+    margin: auto;
+  }
 }
