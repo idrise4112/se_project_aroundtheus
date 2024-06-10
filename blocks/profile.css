@@ -8,6 +8,7 @@
 @media screen and (max-width: 620px) {
   .profile {
     flex-direction: column;
+    align-items: baseline;
   }
 }
 
@@ -21,10 +22,6 @@
 }
 
 @media screen and (max-width: 620px) {
-  .profile {
-    align-items: baseline;
-  }
-
   .profile__info {
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +33,6 @@
 
 @media screen and (max-width: 320px) {
   .profile__info {
-    flex-direction: column;
     align-items: center;
     padding-top: 20px;
   }
@@ -57,8 +53,9 @@
 @media screen and (max-width: 320px) {
   .profile__edit-button {
     margin-left: 15px;
-    position: absolute;
     right: 20px;
+    width: 20.25px;
+    height: 20.25px;
   }
 }
 
