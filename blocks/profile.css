@@ -2,13 +2,19 @@
   display: flex;
   align-items: center;
   padding-top: 40px;
-  align-items: flex-start;
 }
 
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 880px) {
   .profile {
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
+  }
+  .profile__title {
+    min-width: 201px;
+    max-width: 222px;
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 22px;
   }
 }
 
@@ -31,7 +37,7 @@
   }
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 880px) {
   .profile__info {
     align-items: center;
     padding-top: 20px;
@@ -50,12 +56,12 @@
   margin-left: 15px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 880px) {
   .profile__edit-button {
     margin-left: 15px;
     right: 20px;
-    width: 20.25px;
-    height: 20.25px;
+    width: 18px;
+    height: 18px;
   }
 }
 
@@ -88,21 +94,25 @@
 
 .profile__title {
   font-family: "Inter", Arial, sans-serif;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 42px;
+  line-height: 48px;
   font-weight: 500;
   grid-area: title;
   margin: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 375px;
+  width: 375px;
+  height: 48px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 880px) {
   .profile__title {
     min-width: 201px;
     max-width: 222px;
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 500;
+    font-size: 22px;
   }
 }
 
@@ -114,12 +124,16 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-bottom: 22px;
+  margin: 0;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 880px) {
   .profile__description {
     margin-bottom: 26px;
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
   }
 }
 
@@ -132,7 +146,7 @@
   margin-right: 24px;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 880px) {
   .profile__image {
     margin: auto;
   }
