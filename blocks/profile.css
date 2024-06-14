@@ -9,13 +9,6 @@
     flex-direction: column;
     align-items: center;
   }
-  .profile__title {
-    min-width: 201px;
-    max-width: 222px;
-    font-family: "Inter", Arial, sans-serif;
-    font-weight: 500;
-    font-size: 22px;
-  }
 }
 
 .profile__info {
@@ -35,9 +28,6 @@
     justify-content: center;
     width: 282px;
   }
-}
-
-@media screen and (max-width: 765px) {
   .profile__info {
     align-items: center;
     padding-top: 20px;
@@ -59,7 +49,6 @@
 @media screen and (max-width: 765px) {
   .profile__edit-button {
     margin-left: 15px;
-    right: 20px;
     width: 18px;
     height: 18px;
   }
@@ -103,14 +92,12 @@
   white-space: nowrap;
   overflow: hidden;
   width: 375px;
-  height: 48px;
 }
 
 @media screen and (max-width: 765px) {
   .profile__title {
     min-width: 201px;
     max-width: 222px;
-    font-family: "Inter", Arial, sans-serif;
     font-weight: 500;
     font-size: 22px;
   }
