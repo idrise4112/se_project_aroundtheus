@@ -1,0 +1,74 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: flex;
+  padding: 0 19px;
+  flex-direction: column;
+}
+
+.modal__heading {
+  color: black;
+  margin: 0 0 54px;
+  font-family: "Inter", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+}
+
+.modal__opened {
+  display: flex;
+}
+
+.title {
+  margin: 0 0 30px;
+  border: 1px solid black;
+  border-radius: 1px;
+}
+
+.description {
+  border: 1px solid black;
+  border-radius: 1px;
+}
+
+.modal_container {
+  position: relative;
+  padding: 34px 36px 36px;
+  background-color: #fff;
+  margin: auto;
+  border-radius: 10px;
+  width: 430px;
+}
+
+.modal__close {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: calc(100% + 5px);
+  width: 46px;
+  height: 46px;
+  background-image: url("../images/CloseIcon.svg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.modal__form {
+  flex-direction: column;
+  display: flex;
+}
+
+.modal__button {
+  background-image: url(../images/SubmitButton.svg);
+  width: 358px;
+  height: 50.15px;
+  background-repeat: no-repeat;
+  margin-top: 48px;
+  margin-left: 36px;
+  margin-right: 36px;
+  border-radius: 2px;
+}
