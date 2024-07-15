@@ -63,7 +63,6 @@
 }
 
 .modal__button {
-  background-image: url(../images/SubmitButton.svg);
   width: 358px;
   height: 50.15px;
   background-repeat: no-repeat;
@@ -71,4 +70,17 @@
   margin-left: 36px;
   margin-right: 36px;
   border-radius: 2px;
+  background-color: black;
+  color: #fff;
+}
+
+@media screen and (max-width: 765px) {
+  .modal_container {
+    width: 282px;
+  }
+  .modal__button {
+    width: 238px;
+    height: 46px;
+    align-self: center;
+  }
 }
