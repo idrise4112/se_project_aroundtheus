@@ -31,9 +31,6 @@
   padding-bottom: 13px;
 }
 
-.modal__input::placeholder {
-}
-
 .modal_container {
   position: relative;
   padding: 34px 36px 36px;
@@ -70,6 +67,7 @@
   border-radius: 2px;
   background-color: black;
   color: #fff;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 765px) {
