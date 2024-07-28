@@ -6,7 +6,7 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: flex;
+  display: none;
   padding: 0 19px;
   flex-direction: column;
 }
@@ -17,7 +17,7 @@
   font-weight: 900;
   font-size: 24px;
 }
-.modal__opened {
+.modal_opened {
   display: flex;
 }
 .modal__input {

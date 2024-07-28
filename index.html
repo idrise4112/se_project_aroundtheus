@@ -24,10 +24,10 @@
           />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
-            <button aria-label="edit" class="profile__edit-button"></button>
+            <button aria-label="edit" class="profile__edit-button" id="profile-edit-button" type="button"></button>
             <p class="profile__description">Explorer</p>
           </div>
-          <button aria-label="Add" class="profile__add-button"></button>
+          <button aria-label="Add" class="profile__add-button" type="button"></button>
         </section>
         <section class="cards page__section">
           <ul class="cards__list">
@@ -104,7 +104,7 @@
         <p class="footer__copyright">&copy;2022 Around the U.S.</p>
       </footer>
     </div>
-    <div class="modal">
+    <div class="modal" id="profile-edit-modal">
       <div class="modal_container">
       <div class="modal__container">
         <button class="modal__close"></button>
@@ -112,13 +112,13 @@
         <form class="modal__form">
           <input
             type="text"
-            placeholder="Jacques Cousteau"
+            placeholder="name"
             name="title"
             class="modal__input"
           />
           <input
             type="text"
-            placeholder="Explorer"
+            placeholder="description"
             name="description"
             class="modal__input"
           />
