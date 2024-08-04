@@ -24,16 +24,59 @@ const initialCards = [
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
   },
 ];
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                                                                          */
+/*                                                                     Elements                                                                                                                                                 */
+/*                                                                                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
+const profileEditCloseButton = profileEditModal.querySelector(".modal__close");
+const profileTitle = document.querySelector(".profile__title");
+const profileDescription = document.querySelector(".profile__description");
+const profileTitleInput = document.querySelector("#profile-title-input");
+const profileDescriptionInput = document.querySelector(
+  "#profile-description-input"
+);
+const profileEditForm = profileEditModal.querySelector(".modal__form");
+const cardList = document.querySelector(".card__list");
+const cardTemplate =
+  document.querySelector("#card-template").contentfirstElementChild;
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                                                                          */
+/*                                                                     Functions                                                                                                                                                */
+/*                                                                                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+function closepopup() {
+  profileEditModal.classList.remove("modal_opened");
+}
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                                                                          */
+/*                                                                     Event Handlers                                                                                                                                                 */
+/*                                                                                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closepopup();
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+/*                                                                                                                                                                          */
+/*                                                                     Event Listener                                                                                                                                                 */
+/*                                                                                                                                                                          */
+/*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 
 profileEditButton.addEventListener("click", () => {
+  profileTitleInput.value = profileTitle.textContent;
+  profileDescriptionInput.value = profileDescription.textContent;
   profileEditModal.classList.add("modal_opened");
 });
 
-document.querySelectorAll(".modal__close").forEach((item) => {
-  item.addEventListener("click", () => {
-    document.querySelector(".modal_opened").classList.remove("modal_opened");
-  });
-});
+profileEditCloseButton.addEventListener("click", closepopup);
+
+profileEditForm.addEventListener("submit", handleProfileEditSubmit);
