@@ -17,8 +17,11 @@
   font-weight: 900;
   font-size: 24px;
 }
+
 .modal_opened {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .modal__input {
   border: none;
@@ -43,8 +46,8 @@
   background-color: transparent;
   cursor: pointer;
   position: absolute;
-  bottom: calc(100% + 5px);
-  left: calc(100% + 5px);
+  right: -51px;
+  top: -51px;
   width: 46px;
   height: 46px;
   background-image: url("../images/CloseIcon.svg");
@@ -70,6 +73,10 @@
     margin-top: 126px;
     height: 322px;
   }
+  .modal__heading {
+    font-size: 18px;
+  }
+
   .modal__button {
     width: 238px;
     height: 46px;
@@ -79,6 +86,7 @@
   .modal__close {
     width: 26px;
     height: 26px;
+    right: 5px;
   }
   .title {
     margin-top: 0 22px 0 22px;
