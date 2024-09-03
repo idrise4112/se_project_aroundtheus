@@ -42,8 +42,9 @@ const profileDescriptionInput = document.querySelector(
 );
 const addNewCardButton = document.querySelector(".profile__add-button");
 const addNewCardModal = document.querySelector("#add-new-card-modal");
-// select form
-// select both input elements
+const addCardFormElement = addNewCardModal.querySelector(".modal__form");
+const cardNameInput = document.querySelector(".modal__input_type_title");
+const cardLinkInput = document.querySelector(".modal__input_type_url");
 const addNewcardCloseButton = addNewCardModal.querySelector(".modal__close");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
@@ -69,9 +70,16 @@ function getCardElement(cardData) {
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
   const likeButton = cardElement.querySelector(".card__like-button");
+  const deleteButton = cardElement.querySelector(".card__delete-button");
 
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
+  });
+
+  // click not remove
+  deleteButton.addEventListener("click", () => {
+    cardElement.remove();
+    deleteButton.classList.toggle("card__delete-button");
   });
 
   cardTitleEl.textContent = cardData.name;
@@ -96,11 +104,10 @@ function handleProfileEditSubmit(e) {
 
 function handleAddCardSubmit(e) {
   e.preventDefault();
-  // use input elements, get their values
-  const cardData = { name: "", link: "" };
+  const cardData = { name: cardNameInput.value, link: cardLinkInput.value };
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
-  closeModal(addCardSubmit); // pass the modal to closeModal
+  closeModal(addNewCardModal);
 }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
@@ -124,6 +131,8 @@ addNewCardButton.addEventListener("click", () => openModal(addNewCardModal));
 addNewcardCloseButton.addEventListener("click", () =>
   closeModal(addNewCardModal)
 );
+
+addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
