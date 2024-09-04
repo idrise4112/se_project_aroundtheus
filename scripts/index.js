@@ -64,6 +64,10 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
 }
 
+// outside of getCardElement
+//   select the preview image modal
+//   and its child element
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -76,11 +80,16 @@ function getCardElement(cardData) {
     likeButton.classList.toggle("card__like-button_active");
   });
 
-  // click not remove
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
     deleteButton.classList.toggle("card__delete-button");
   });
+
+  // card image listener
+  // in the handler for card image listener
+  //    add alt and src to the image
+  //    add the text content
+  //    open the modal
 
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
