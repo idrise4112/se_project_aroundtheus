@@ -88,6 +88,10 @@
     height: 26px;
     right: 5px;
   }
+
+  .modal__preview-image {
+  }
+
   .title {
     margin-top: 0 22px 0 22px;
     border-bottom: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);

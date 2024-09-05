@@ -48,7 +48,6 @@ const cardLinkInput = document.querySelector(".modal__input_type_url");
 const addNewcardCloseButton = addNewCardModal.querySelector(".modal__close");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardListEl = document.querySelector(".cards__list");
-const previewText = previewImageModal.querySelector(".modal__preview-title");
 
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
@@ -69,6 +68,9 @@ function openModal(modal) {
 //   select the preview image modal
 //   and its child element
 
+const previewImageModal = "modal__preview";
+const previewText = previewImageModal.querySelector("modal__caption");
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -86,17 +88,17 @@ function getCardElement(cardData) {
     deleteButton.classList.toggle("card__delete-button");
   });
 
-  cardImageEl.addEventListener("click", () => {
-    imgEL.src = cardData.link;
-    previewText.textContent = cardData.name;
-    previewImageModal.classList.add("modal_opened");
-  });
-
   // card image listener
   // in the handler for card image listener
   //    add alt and src to the image
   //    add the text content
   //    open the modal
+
+  cardImageEl.addEventListener("click", () => {
+    imageEL.src = cardData.link;
+    previewText.textContent = cardData.name;
+    previewImageModal.classList.add("modal_opened");
+  });
 
   cardTitleEl.textContent = cardData.name;
   cardImageEl.src = cardData.link;
