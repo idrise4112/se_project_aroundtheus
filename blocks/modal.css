@@ -67,6 +67,11 @@
   color: #fff;
   cursor: pointer;
 }
+.modal__image {
+  width: 433px;
+  height: 540px;
+}
+
 @media screen and (max-width: 765px) {
   .modal__container {
     width: 282px;
@@ -88,18 +93,18 @@
     height: 26px;
     right: 5px;
   }
-
-  .modal__preview-image {
+  .modal__image {
+    width: 240px;
+    height: 299px;
   }
-
-  .title {
-    margin-top: 0 22px 0 22px;
-    border-bottom: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
-    border-radius: 1px;
-  }
-  .description {
-    border-radius: 1px;
-    margin-top: 30px 22px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 1);
-  }
+}
+.title {
+  margin-top: 0 22px 0 22px;
+  border-bottom: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+  border-radius: 1px;
+}
+.description {
+  border-radius: 1px;
+  margin-top: 30px 22px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
