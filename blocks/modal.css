@@ -6,10 +6,13 @@
   right: 0;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  display: none;
   padding: 0 19px;
   flex-direction: column;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 1s, opacity 1s linear;
 }
+
 .modal__heading {
   color: black;
   margin: 0 0 54px;
@@ -19,9 +22,11 @@
 }
 
 .modal_opened {
-  display: flex;
   justify-content: center;
   align-items: center;
+  visibility: visible;
+  opacity: 1;
+  display: flex;
 }
 .modal__input {
   border: none;
@@ -67,6 +72,12 @@
   color: #fff;
   cursor: pointer;
 }
+
+.modal__preview-image {
+  position: relative;
+  background-color: transparent;
+}
+
 .modal__image {
   width: 433px;
   height: 540px;
