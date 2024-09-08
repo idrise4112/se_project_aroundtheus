@@ -45,7 +45,6 @@
   border-radius: 10px;
   width: 430px;
   box-sizing: border-box;
-  margin-top: 195px;
 }
 .modal__close {
   border: none;
@@ -54,8 +53,8 @@
   position: absolute;
   right: -51px;
   top: -51px;
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   background-image: url("../images/CloseIcon.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -64,6 +63,7 @@
   flex-direction: column;
   display: flex;
 }
+
 .modal__button {
   width: 358px;
   height: 50.15px;
@@ -84,10 +84,15 @@
   height: 540px;
 }
 
+.modal__close_preview {
+  width: 40px;
+  height: 40px;
+  top: 40px;
+}
+
 @media screen and (max-width: 765px) {
   .modal__container {
     width: 282px;
-    margin-top: 126px;
     height: 322px;
   }
   .modal__heading {
@@ -100,9 +105,15 @@
     align-self: center;
     margin-bottom: 45px;
   }
+  .modal__close-image {
+    width: 30px;
+    height: 30px;
+    left: 279px;
+    margin-top: 51px;
+  }
   .modal__close {
-    width: 26px;
-    height: 26px;
+    width: 30px;
+    height: 30px;
     right: 5px;
   }
   .modal__image {
