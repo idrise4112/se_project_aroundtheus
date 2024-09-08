@@ -44,6 +44,7 @@
   margin: auto;
   border-radius: 10px;
   width: 430px;
+  height: 330px;
   box-sizing: border-box;
 }
 .modal__close {
