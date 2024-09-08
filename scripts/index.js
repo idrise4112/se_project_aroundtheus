@@ -87,7 +87,6 @@ function getCardElement(cardData) {
 
   deleteButton.addEventListener("click", () => {
     cardElement.remove();
-    deleteButton.classList.toggle("card__delete-button");
   });
 
   // card image listener

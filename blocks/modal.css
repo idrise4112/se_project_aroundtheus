@@ -10,7 +10,10 @@
   flex-direction: column;
   visibility: hidden;
   opacity: 0;
-  transition: visibility 1s, opacity 1s linear;
+  transition: visibility 0.4s, opacity 0.4s linear;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .modal__heading {
@@ -22,12 +25,10 @@
 }
 
 .modal_opened {
-  justify-content: center;
-  align-items: center;
   visibility: visible;
   opacity: 1;
-  display: flex;
 }
+
 .modal__input {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 1);
