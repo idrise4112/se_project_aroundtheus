@@ -89,12 +89,6 @@ function getCardElement(cardData) {
     cardElement.remove();
   });
 
-  // card image listener
-  // in the handler for card image listener
-  //    add alt and src to the image
-  //    add the text content
-  //    open the modal
-
   cardImageEl.addEventListener("click", () => {
     modalImage.src = cardData.link;
     modalImage.alt = cardData.name;

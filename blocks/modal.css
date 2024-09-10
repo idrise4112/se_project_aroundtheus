@@ -47,19 +47,21 @@
   height: 330px;
   box-sizing: border-box;
 }
+
 .modal__close {
   border: none;
   background-color: transparent;
   cursor: pointer;
   position: absolute;
-  right: -51px;
-  top: -51px;
-  width: 40px;
-  height: 40px;
+  margin-top: -80px;
+  margin-left: 390px;
+  width: 40.7px;
+  height: 40.7px;
   background-image: url("../images/CloseIcon.svg");
   background-repeat: no-repeat;
   background-size: contain;
 }
+
 .modal__form {
   flex-direction: column;
   display: flex;
@@ -78,6 +80,7 @@
 .modal__preview-image {
   position: relative;
   background-color: transparent;
+  margin-top: 90px;
 }
 
 .modal__image {
@@ -85,16 +88,18 @@
   height: 540px;
 }
 
-.modal__close_preview {
+.modal_preview .modal__close {
   width: 40px;
   height: 40px;
-  top: 40px;
+  left: 84px;
+  top: 67px;
 }
 
 @media screen and (max-width: 765px) {
   .modal__container {
     width: 282px;
     height: 322px;
+    margin-top: 102px;
   }
   .modal__heading {
     font-size: 18px;
@@ -106,20 +111,18 @@
     align-self: center;
     margin-bottom: 45px;
   }
-  .modal__close-image {
-    width: 30px;
-    height: 30px;
-    left: 279px;
-    margin-top: 51px;
-  }
+
   .modal__close {
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     right: 5px;
   }
+
   .modal__image {
     width: 240px;
     height: 299px;
+    margin-top: -17px;
+    margin-left: -15px;
   }
 }
 .title {
