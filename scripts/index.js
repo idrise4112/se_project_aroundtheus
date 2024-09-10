@@ -103,6 +103,12 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
+const addModalForm = document.getElementById("modal__form");
+const clear = document.getElementById("reset");
+
+clear.addEventListener("click", () => {
+  addModalForm.reset();
+});
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Event Handlers                                                                                                                                                 */
