@@ -75,6 +75,7 @@
   background-color: black;
   color: #fff;
   cursor: pointer;
+  border: none;
 }
 
 .modal__preview-image {
@@ -88,11 +89,11 @@
   height: 540px;
 }
 
-.modal_preview .modal__close {
+.modal__close.modal__close-image {
   width: 40px;
   height: 40px;
-  left: 84px;
-  top: 67px;
+  top: 68px;
+  left: 82px;
 }
 
 @media screen and (max-width: 765px) {
@@ -103,6 +104,7 @@
   }
   .modal__heading {
     font-size: 18px;
+    line-height: 21px;
   }
 
   .modal__button {
@@ -115,13 +117,21 @@
   .modal__close {
     width: 26px;
     height: 26px;
-    right: 5px;
+    left: -114px;
+    top: 46px;
+  }
+
+  .modal__close.modal__close-image {
+    width: 30px;
+    height: 30px;
+    top: 46px;
+    left: -128px;
   }
 
   .modal__image {
     width: 240px;
     height: 299px;
-    margin-top: -17px;
+    margin-top: -33px;
     margin-left: -15px;
   }
 }
