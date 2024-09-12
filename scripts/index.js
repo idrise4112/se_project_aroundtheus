@@ -140,4 +140,3 @@ initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardListEl.prepend(cardElement);
 });
-const addModalForm = document.getElementById("#add-modal-button");
