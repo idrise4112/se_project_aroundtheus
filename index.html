@@ -51,17 +51,17 @@
         <button class="modal__close"></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form">
-          <input 
+          <input
             type="text"
             placeholder="name"
             id="profile-title-input"
             name="title"
-            class="modal__input"
+            class="modal__input modal__input_type_error"
             required
           maxlength="40"
           minlength="2"
            />
-          <span class="modal__error">please fill out this field</span>
+          <span class="modal__error"  id="profile-title-input-error">please fill out this field</span>
           <input
             type="text"
             placeholder="description"

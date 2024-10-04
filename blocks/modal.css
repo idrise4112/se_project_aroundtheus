@@ -31,7 +31,7 @@
 
 .modal__input {
   border: none;
-  border-bottom: 1px solid #ff0000;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
   border-radius: 1px;
   margin-bottom: 30px;
   padding-bottom: 13px;
@@ -104,6 +104,10 @@
   top: 152px;
   left: 41px;
   transition: opacity 0.3s;
+}
+
+.modal__input_type_error {
+  border-bottom: 1px solid rgb(224, 12, 12);
 }
 
 @media screen and (max-width: 765px) {
