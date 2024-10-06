@@ -93,13 +93,18 @@
         <button class="modal__close "></button>
         <p class="modal__heading">New Place</p>
         <form class="modal__form">
+          <label class="modal__label">
           <input
           type="text"
             placeholder="Title"
             id="add-card-form"
             name="title"
             class="modal__input modal__input_type_title"
+            required
           />
+          <span class="modal__error" id="add-card-form-error"></span>
+          </label>
+          <label class="modal__label">
           <input
             type="text"
             placeholder="Image URL"
@@ -107,7 +112,9 @@
             name="url"
             class="modal__input modal__input_type_url"
           />
+          <span class="modal__error" id="profile-description-input-error"></span>
           <button id="add-modal-button"class="modal__button">Create</button>
+          </label>
         </form>
       </div>
     <template id="card-template">
