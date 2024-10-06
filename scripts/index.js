@@ -122,6 +122,7 @@ function handleAddCardSubmit(e) {
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
+  /* hideInputErrors? */
   openModal(profileEditModal);
 });
 profileEditCloseButton.addEventListener("click", () =>
