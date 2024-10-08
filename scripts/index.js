@@ -91,6 +91,12 @@ function getCardElement(cardData) {
   cardImageEl.alt = cardData.name;
   return cardElement;
 }
+const Escape = (evt, Escape) => {
+  const activeModal = document.querySelector(".modal_opened");
+  if (evt.key === "Escape") {
+    closeModal(activeModal);
+  }
+};
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
