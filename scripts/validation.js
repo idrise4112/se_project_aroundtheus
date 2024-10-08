@@ -21,18 +21,18 @@ function checkInputValidity(formEl, inputEl, options) {
   hideInputError(formEl, inputEl, options);
 }
 
-function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
-  function hasInvalidInput(inputList) {
-    return !inputList.every((inputEl) => inputEl.validity.valid);
-  }
+function hasInvalidInput(inputList) {
+  return !inputList.every((inputEl) => inputEl.validity.valid);
 }
 
-if (foundInvalid) {
-  submitButton.classList.add(inactiveButtonClass);
-  return (submitButton.disabled = true);
+function toggleButtonState(inputEls, submitButton, { inactiveButtonClass }) {
+  if (hasInvalidInput(inputEls)) {
+    submitButton.classList.add(inactiveButtonClass);
+    return (submitButton.disabled = true);
+  }
+  submitButton.classList.remove(inactiveButtonClass);
+  submitButton.disabled = false;
 }
-submitButton.classList.remove(inactiveButtonClass);
-submitButton.disabled = false;
 
 function setEventListeners(formEl, options) {
   const { inputSelector } = options;
