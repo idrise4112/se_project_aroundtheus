@@ -49,6 +49,10 @@ const cardListEl = document.querySelector(".cards__list");
 const modalImage = document.querySelector(".modal__image");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+const handleModalOverlay = document.addEventListener(
+  "keydown",
+  handleEscKeyPress
+);
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Functions                                                                                                                                                */
@@ -91,12 +95,25 @@ function getCardElement(cardData) {
   cardImageEl.alt = cardData.name;
   return cardElement;
 }
-const Escape = (evt, Escape) => {
-  const activeModal = document.querySelector(".modal_opened");
+
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  modal.addEventListener("mousedown", handleModalOverlay);
+}
+
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  modal.removeEventListener("mousedown", handleModalOverlay);
+}
+
+function handleEscKeyPress(evt) {
   if (evt.key === "Escape") {
-    closeModal(activeModal);
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
   }
-};
+}
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
