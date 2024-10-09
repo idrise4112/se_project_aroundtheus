@@ -136,7 +136,7 @@
   .modal__button {
     width: 238px;
     height: 46px;
-    align-self: center;
+    margin-left: -14px;
     margin-bottom: 45px;
   }
 

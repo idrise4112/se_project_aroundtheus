@@ -49,7 +49,7 @@ const cardListEl = document.querySelector(".cards__list");
 const modalImage = document.querySelector(".modal__image");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const handleModalOverlay = document.addEventListener(
+const handleCloseOverlay = document.addEventListener(
   "keydown",
   handleEscKeyPress
 );
@@ -58,12 +58,7 @@ const handleModalOverlay = document.addEventListener(
 /*                                                                     Functions                                                                                                                                                */
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-}
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-}
+
 // outside of getCardElement
 //   select the preview image modal
 //   and its child element
@@ -98,12 +93,12 @@ function getCardElement(cardData) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  modal.addEventListener("mousedown", handleModalOverlay);
+  modal.addEventListener("keydown", handleCloseOverlay);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  modal.removeEventListener("mousedown", handleModalOverlay);
+  modal.removeEventListener("keydown", handleCloseOverlay);
 }
 
 function handleEscKeyPress(evt) {
