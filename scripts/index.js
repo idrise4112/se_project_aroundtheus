@@ -49,10 +49,7 @@ const cardListEl = document.querySelector(".cards__list");
 const modalImage = document.querySelector(".modal__image");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
-const handleCloseOverlay = document.addEventListener(
-  "keydown",
-  handleEscKeyPress
-);
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Functions                                                                                                                                                */
@@ -93,12 +90,12 @@ function getCardElement(cardData) {
 
 function openModal(modal) {
   modal.classList.add("modal_opened");
-  modal.addEventListener("keydown", handleCloseOverlay);
+  modal.addEventListener("mousedown", handleCloseOverlay);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  modal.removeEventListener("keydown", handleCloseOverlay);
+  modal.removeEventListener("mousedown", handleCloseOverlay);
 }
 
 function handleEscKeyPress(evt) {
@@ -106,10 +103,16 @@ function handleEscKeyPress(evt) {
     const openedModal = document.querySelector(".modal_opened");
     if (openedModal) {
       closeModal(openedModal);
+      document.addEventListener("keydown", handleEscKeyPress);
     }
   }
 }
 
+function handleCloseOverlay(evt) {
+  if (evt.target.classList.contains("modal_opened")) {
+    closeModal(evt.target);
+  }
+}
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Event Handlers                                                                                                                                                 */
