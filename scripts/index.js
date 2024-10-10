@@ -91,11 +91,13 @@ function getCardElement(cardData) {
 function openModal(modal) {
   modal.classList.add("modal_opened");
   modal.addEventListener("mousedown", handleCloseOverlay);
+  document.addEventListener("keydown", handleEscKeyPress);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   modal.removeEventListener("mousedown", handleCloseOverlay);
+  document.addEventListener("keydown", handleEscKeyPress);
 }
 
 function handleEscKeyPress(evt) {
@@ -103,7 +105,6 @@ function handleEscKeyPress(evt) {
     const openedModal = document.querySelector(".modal_opened");
     if (openedModal) {
       closeModal(openedModal);
-      document.addEventListener("keydown", handleEscKeyPress);
     }
   }
 }
