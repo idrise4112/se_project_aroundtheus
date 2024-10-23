@@ -31,6 +31,7 @@ const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
+
 const card = new Card(cardData, "#card-template");
 card.getView();
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
@@ -169,6 +170,7 @@ addNewcardCloseButton.addEventListener("click", () =>
 );
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 initialCards.forEach((cardData) => {
-  const cardElement = getCardElement(cardData);
-  cardListEl.prepend(cardElement);
+  const card = new Card(cardData);
+  card.getView();
+  cardListEl.prepend(card.getView());
 });
