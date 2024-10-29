@@ -1,4 +1,5 @@
 import Card from "../components/Card.js";
+import formValidator from "./formvalidator.js";
 
 const initialCards = [
   {
@@ -171,3 +172,10 @@ initialCards.forEach((cardData) => {
   card.getView();
   cardListEl.prepend(card.getView());
 });
+
+const config = {
+  // ...
+};
+
+const addCardValidator = new formValidator(config, addNewCardModal);
+const editProfileValidator = new formValidator(config, profileEditModal);
