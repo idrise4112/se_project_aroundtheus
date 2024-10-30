@@ -28,6 +28,25 @@ class formValidator {
     errorElement.classList.remove(this._errorClass);
   }
 
+  _checkInputValidity(inputElement) {}
+
+  _toggleButtonState() {}
+
+  _hasInvalidInput() {
+    return this._inputEls.every((inputEl) => inputEl.validity.valid);
+  }
+
+  _setEventlistener() {
+    this._inputEls = this._element.querySelectorAll(this._inputSelector);
+  }
+
+  enableValidation() {
+    this._element.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+    });
+    setEventListeners(formElement);
+  }
+
   /*
   FormValidaor needs to know about all forms and all input fields inside them.
   FormValidator knows about all changes inside input fields. To provitde it we need to create event listener for keydown.
