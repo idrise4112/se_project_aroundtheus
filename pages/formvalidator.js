@@ -15,7 +15,7 @@ class formValidator {
     );
 
     inputElement.classList.add(this._inputErrorClass);
-    errorElement.textContent = "";
+    errorElement.textContent = inputElement.validationMessage;
     errorElement.classList.remove(this._errorClass);
   }
 
@@ -30,9 +30,12 @@ class formValidator {
 
   _checkInputValidity(inputElement) {}
 
-  _toggleButtonState() {}
+  _toggleButtonState(inputElement) {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    return (submitButton.disabled = true);
+  }
 
-  _hasInvalidInput() {
+  _hasInvalidInput(inputList) {
     return this._inputEls.every((inputEl) => inputEl.validity.valid);
   }
 
@@ -44,7 +47,7 @@ class formValidator {
     this._element.addEventListener("submit", (evt) => {
       evt.preventDefault();
     });
-    setEventListeners(formElement);
+    _setEventListeners(formElement);
   }
 
   /*
