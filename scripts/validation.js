@@ -67,4 +67,7 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
+// addCardValidator.enableValidation();
+// editProfileValidator.enableValidation();
+
 enableValidation(config);

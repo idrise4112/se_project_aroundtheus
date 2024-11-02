@@ -5,7 +5,7 @@ export default class Card {
 
     this._cardSelector = cardSelector;
   }
-  _setEventlisteners() {
+  _setEventListeners() {
     // Add event listener for the like button
     this._cardElement
       .querySelector(".card__like-button")
@@ -21,7 +21,7 @@ export default class Card {
       });
   }
 
-  handleDeleteCard() {
+  _handleDeleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
   }
