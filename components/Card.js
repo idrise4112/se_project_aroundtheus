@@ -11,6 +11,7 @@ export default class Card {
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
         this._handleLikeIcon();
+        console.log("hello");
       });
 
     // Add event listener for the delete button
@@ -29,7 +30,7 @@ export default class Card {
   _handleLikeIcon() {
     this._cardElement
       .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_is-active");
+      .classList.toggle("card__like-button_active");
   }
 
   getView() {
@@ -37,6 +38,8 @@ export default class Card {
       .querySelector("#card-template")
       .content.querySelector(".card")
       .cloneNode(true);
+
+    this._setEventListeners();
 
     this._cardElement.querySelector(".card__title").textContent = this._name;
     this._cardElement.querySelector(".card__image").src = this._link;

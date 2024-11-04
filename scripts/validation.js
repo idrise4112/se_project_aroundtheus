@@ -18,7 +18,7 @@ function checkInputValidity(formEl, inputEl, options) {
   if (!inputEl.validity.valid) {
     return showInputError(formEl, inputEl, options);
   }
-  InputErrorhide(formEl, inputEl, options);
+  inputErrorhide(formEl, inputEl, options);
 }
 
 function hasInvalidInput(inputList) {
