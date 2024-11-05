@@ -46,16 +46,18 @@ class formValidator {
   }
 
   _hasInvalidInput(inputList) {
-    return this._inputEls.every((inputEl) => inputEl.validity.valid);
+    return Array.from(this._inputEls).every(
+      (inputEl) => inputEl.validity.valid
+    );
   }
 
   _enableSubmitButton() {
-    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.classList.remove(this._enableSubmitButton);
     this._submitButton.disabled = false;
   }
 
   _disableSubmitButton() {
-    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.classList.add(this._disableSubmitButton);
     this._submitButton.disabled = true;
   }
   _setEventlisteners() {

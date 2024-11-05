@@ -158,6 +158,7 @@ profileEditButton.addEventListener("click", () => {
 profileEditCloseButton.addEventListener("click", () =>
   closeModal(profileEditModal)
 );
+
 previewModalCloseButton.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
@@ -167,8 +168,13 @@ addNewcardCloseButton.addEventListener("click", () =>
   closeModal(addNewCardModal)
 );
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
+
+const handleImageClick = () => {
+  const previewImage = document.querySelector(".card__image");
+};
+
 initialCards.forEach((cardData) => {
-  const card = new Card(cardData, "#card-template");
+  const card = new Card(cardData, "#card-template", handleImageClick);
 
   card.getView();
 

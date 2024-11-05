@@ -1,9 +1,10 @@
 export default class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, handleImageClick) {
     this._name = name;
     this._link = link;
 
     this._cardSelector = cardSelector;
+    this._handleImageClick = handleImageClick;
   }
   _setEventListeners() {
     // Add event listener for the like button
@@ -11,7 +12,6 @@ export default class Card {
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
         this._handleLikeIcon();
-        console.log("hello");
       });
 
     // Add event listener for the delete button
@@ -19,6 +19,12 @@ export default class Card {
       .querySelector(".card__delete-button")
       .addEventListener("click", () => {
         this._handleDeleteCard();
+      });
+
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this._handleImageClick();
       });
   }
 
