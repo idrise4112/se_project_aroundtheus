@@ -1,13 +1,14 @@
 class formValidator {
   constructor(config, formElement) {
     this._inputSelector = config.inputSelector;
-    this.SubmitButttonSelector = config.SubmitButttonSelector;
+    this._submitButttonSelector = config.submitButtonSelector;
     this._inactiveButtonClass = config.inactiveButtonClass;
     this._inputErrorClass = config.inputErrorClass;
     this._errorClass = config.errorClass;
     this._inputEls = formElement.querySelectorAll(this._inputSelector);
     this._element = formElement;
-    this._submitButton = formElement.querySelector(this.SubmitButttonSelector);
+    this._submitButton = formElement.querySelector(this._submitButttonSelector);
+    console.log(this._submitButton);
   }
 
   _showInputError(inputElement) {
@@ -38,15 +39,17 @@ class formValidator {
 
   _toggleButtonState(inputElement) {
     if (this._hasInvalidInput(this._inputEls)) {
+      console.log("hello");
       this._submitButton.classList.add(this._inactiveButtonClass);
-      return (this._submitButtonSelector.disabled = true);
+      return (this._submitButton.disabled = true);
     }
-    this._submitButtonSelector.classList.remove(this._inactiveButtonClass);
-    this._submitButtonSelector.disabled = false;
+    console.log("world");
+    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.disabled = false;
   }
 
   _hasInvalidInput(inputList) {
-    return Array.from(this._inputEls).every(
+    return !Array.from(this._inputEls).every(
       (inputEl) => inputEl.validity.valid
     );
   }

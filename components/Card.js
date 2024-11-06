@@ -5,7 +5,6 @@ export default class Card {
 
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
-    this._handleImageClick({ name: this._name, link: this._link });
   }
   _setEventListeners() {
     // Add event listener for the like button
@@ -57,5 +56,6 @@ export default class Card {
 
     return this._cardElement;
   }
+
   _setEventlisteners() {}
 }
