@@ -8,7 +8,6 @@ class formValidator {
     this._inputEls = formElement.querySelectorAll(this._inputSelector);
     this._element = formElement;
     this._submitButton = formElement.querySelector(this._submitButttonSelector);
-    console.log(this._submitButton);
   }
 
   _showInputError(inputElement) {
@@ -39,11 +38,9 @@ class formValidator {
 
   _toggleButtonState(inputElement) {
     if (this._hasInvalidInput(this._inputEls)) {
-      console.log("hello");
       this._submitButton.classList.add(this._inactiveButtonClass);
       return (this._submitButton.disabled = true);
     }
-    console.log("world");
     this._submitButton.classList.remove(this._inactiveButtonClass);
     this._submitButton.disabled = false;
   }
