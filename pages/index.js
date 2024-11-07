@@ -133,17 +133,15 @@ function handleProfileEditSubmit(e) {
 function handleAddCardSubmit(e) {
   e.preventDefault();
 
-  // const cardData = { name: cardNameInput.value, link: cardLinkInput.value };
-  // const cardElement = getCardElement(cardData);
-  // cardListEl.prepend(cardElement);
   const card = new Card(
     {
       name: cardNameInput.value,
       link: cardLinkInput.value,
     },
-    ".card",
-    () => {}
+    "#card-template",
+    handleImageClick
   );
+
   const cardView = card.getView();
   cardListEl.prepend(cardView);
 
@@ -178,6 +176,7 @@ addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 const handleImageClick = (cardData) => {
   const previewImage = document.querySelector(".card__image");
+
   modalImage.src = cardData.link;
   modalImage.alt = cardData.name;
   previewText.textContent = cardData.name;
@@ -189,7 +188,6 @@ initialCards.forEach((cardData) => {
   const card = new Card(cardData, "#card-template", handleImageClick);
 
   card.getView();
-
   cardListEl.prepend(card.getView());
 });
 
