@@ -143,7 +143,7 @@ function handleAddCardSubmit(e) {
   );
 
   const cardView = card.getView();
-  cardListEl.prepend(cardView);
+  cardListEl.prepend(createCard(cardData));
 
   closeModal(addNewCardModal);
 
@@ -182,11 +182,14 @@ const handleImageClick = (cardData) => {
   openModal(previewImageModal);
 };
 
-initialCards.forEach((cardData) => {
+function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
+  return card.getView();
+}
 
-  card.getView();
-  cardListEl.prepend(card.getView());
+initialCards.forEach((cardData) => {
+  //const card = new Card(cardData, "#card-template", handleImageClick);
+  cardListEl.prepend(createCard(cardData));
 });
 
 const config = {

@@ -67,13 +67,6 @@ class FormValidator {
     });
     this._setEventlisteners();
   }
-
-  /*
-  FormValidaor needs to know about all forms and all input fields inside them.
-  FormValidator knows about all changes inside input fields. To provitde it we need to create event listener for keydown.
-  AND! you need to run the same mechanism like on keydown for modal OPEN, otherwise if user does an error, after modal close, error will stay.
-
-  */
 }
 
 export default FormValidator;
