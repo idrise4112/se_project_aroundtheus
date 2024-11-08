@@ -1,5 +1,5 @@
 import Card from "../components/Card.js";
-import formValidator from "../components/formValidator.js";
+import FormValidator from "../components/FormValidator.js";
 
 const initialCards = [
   {
@@ -175,8 +175,6 @@ addNewcardCloseButton.addEventListener("click", () =>
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 const handleImageClick = (cardData) => {
-  const previewImage = document.querySelector(".card__image");
-
   modalImage.src = cardData.link;
   modalImage.alt = cardData.name;
   previewText.textContent = cardData.name;
@@ -200,7 +198,7 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-const addCardValidator = new formValidator(config, addCardFormElement);
+const addCardValidator = new FormValidator(config, addCardFormElement);
 addCardValidator.enableValidation();
-const editProfileValidator = new formValidator(config, profileEditForm);
+const editProfileValidator = new FormValidator(config, profileEditForm);
 editProfileValidator.enableValidation();

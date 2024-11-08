@@ -69,7 +69,6 @@
 }
 
 .modal__button {
-  width: 358px;
   height: 50.15px;
   background-repeat: no-repeat;
   border-radius: 2px;
@@ -77,6 +76,7 @@
   color: #fff;
   cursor: pointer;
   border: none;
+  font-size: 18px;
 }
 
 .modal__preview-image {
@@ -92,6 +92,7 @@
 
 .modal__label {
   position: relative;
+  display: flex;
 }
 
 .modal__close.modal__close-image {
@@ -134,10 +135,9 @@
   }
 
   .modal__button {
-    width: 238px;
     height: 46px;
-    margin-left: -14px;
     margin-bottom: 45px;
+    font-size: 14px;
   }
 
   .modal__close {
