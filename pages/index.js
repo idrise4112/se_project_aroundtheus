@@ -143,12 +143,14 @@ function handleAddCardSubmit(e) {
   );
 
   const cardView = card.getView();
-  cardListEl.prepend(createCard(cardData));
+  cardListEl.prepend(cardView);
 
   closeModal(addNewCardModal);
 
   e.target.reset();
+  addCardValidator.disableButton();
 }
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Event Listener                                                                                                                                                 */
