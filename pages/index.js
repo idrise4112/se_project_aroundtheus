@@ -180,7 +180,7 @@ const handleImageClick = (cardData) => {
   modalImage.src = cardData.link;
   modalImage.alt = cardData.name;
   previewText.textContent = cardData.name;
-  previewImageModal.classList.add("modal_opened");
+  previewImageModal.classList.add();
   openModal(previewImageModal);
 };
 
