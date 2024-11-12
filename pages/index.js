@@ -134,7 +134,7 @@ function handleAddCardSubmit(e) {
   e.preventDefault();
 
   const nameInput = document.getElementById("add-card-form");
-  const linkInput = document.getElementById("profile-description-input");
+  const linkInput = document.getElementById("profile-add-description-input");
 
   const cardData = {
     name: nameInput.value,
