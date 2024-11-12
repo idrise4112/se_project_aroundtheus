@@ -133,16 +133,16 @@ function handleProfileEditSubmit(e) {
 function handleAddCardSubmit(e) {
   e.preventDefault();
 
-  const card = new Card(
-    {
-      name: cardNameInput.value,
-      link: cardLinkInput.value,
-    },
-    "#card-template",
-    handleImageClick
-  );
+  const nameInput = document.getElementById("add-card-form");
+  const linkInput = document.getElementById("profile-description-input");
 
-  const cardView = card.getView();
+  const cardData = {
+    name: nameInput.value,
+    link: linkInput.value,
+  };
+
+  const cardView = createCard(cardData);
+
   cardListEl.prepend(cardView);
 
   closeModal(addNewCardModal);
@@ -185,11 +185,11 @@ const handleImageClick = (cardData) => {
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
+
   return card.getView();
 }
 
 initialCards.forEach((cardData) => {
-  //const card = new Card(cardData, "#card-template", handleImageClick);
   cardListEl.prepend(createCard(cardData));
 });
 
