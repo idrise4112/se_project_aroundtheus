@@ -1,6 +1,7 @@
 import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
 import "./index.css";
+import Section from "../components/Section.js";
 
 const initialCards = [
   {
@@ -54,6 +55,20 @@ const cardListEl = document.querySelector(".cards__list");
 const modalImage = document.querySelector(".modal__image");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
+
+//create an instance of the section class
+const cardSection = new Section(
+  {
+    items: initialCards,
+    renderer: (cardData) => {
+      const cardElement = createCard(cardData);
+      cardSection.addItem(cardElement);
+    },
+  },
+  ".cards__list"
+);
+
+cardSection.renderItems();
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
@@ -189,10 +204,6 @@ function createCard(cardData) {
 
   return card.getView();
 }
-
-initialCards.forEach((cardData) => {
-  cardListEl.prepend(createCard(cardData));
-});
 
 const config = {
   formSelector: ".modal__form",
