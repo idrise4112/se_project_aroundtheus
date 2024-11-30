@@ -1,11 +1,17 @@
 export default class Modal {
   constructor({ modalSelector }) {
-    this._popupElement = document.querySelector(modalSelector);
+    this._modalElement = document.querySelector(modalSelector);
+    console.log(modalSelector);
+    console.log(this._modalElement);
   }
 
-  open() {}
+  open() {
+    this._modalElement.classList.add("modal_opened");
+  }
 
-  close() {}
+  close() {
+    this._modalElement.classList.remove("modal_opened");
+  }
 
   _handleEscClose() {}
 

@@ -2,6 +2,7 @@ import Card from "../scripts/Card.js";
 import FormValidator from "../scripts/FormValidator.js";
 import "./index.css";
 import Section from "../components/Section.js";
+import Modal from "../components/Modal.js";
 
 const initialCards = [
   {
@@ -109,17 +110,17 @@ const previewModalCloseButton =
 //   return cardElement;
 // }
 
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  modal.addEventListener("mousedown", handleCloseOverlay);
-  document.addEventListener("keydown", handleEscKeyPress);
-}
+// function openModal(modal) {
+//   modal.classList.add("modal_opened");
+//   modal.addEventListener("mousedown", handleCloseOverlay);
+//   document.addEventListener("keydown", handleEscKeyPress);
+// }
 
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  modal.removeEventListener("mousedown", handleCloseOverlay);
-  document.removeEventListener("keydown", handleEscKeyPress);
-}
+// function closeModal(modal) {
+//   modal.classList.remove("modal_opened");
+//   modal.removeEventListener("mousedown", handleCloseOverlay);
+//   document.removeEventListener("keydown", handleEscKeyPress);
+// }
 
 function handleEscKeyPress(evt) {
   if (evt.key === "Escape") {
@@ -176,11 +177,16 @@ profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
   profileDescriptionInput.value = profileDescription.textContent;
   /* hideInputErrors? */
-  openModal(profileEditModal);
+  // openModal(profileEditModal);
+  const profileModal = new Modal({ modalSelector: "#profile-edit-modal" });
+  profileModal.open();
 });
-profileEditCloseButton.addEventListener("click", () =>
-  closeModal(profileEditModal)
-);
+
+profileEditCloseButton.addEventListener("click", () => {
+  // closeModal(profileEditModal)
+  const profileModal = new Modal({ modalSelector: "#profile-edit-modal" });
+  profileModal.close();
+});
 
 previewModalCloseButton.addEventListener("click", () =>
   closeModal(previewImageModal)
@@ -192,12 +198,12 @@ addNewcardCloseButton.addEventListener("click", () =>
 );
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
-const handleImageClick = (cardData) => {
+function handleImageClick(cardData) {
   modalImage.src = cardData.link;
   modalImage.alt = cardData.name;
   previewText.textContent = cardData.name;
   openModal(previewImageModal);
-};
+}
 
 function createCard(cardData) {
   const card = new Card(cardData, "#card-template", handleImageClick);
