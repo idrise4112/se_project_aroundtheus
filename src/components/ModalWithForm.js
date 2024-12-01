@@ -11,6 +11,11 @@ class ModalWithForm extends Modal {
     this._modalForm.reset();
     super.close();
   }
+
+  setEventListeners() {
+    super.setEventListeners();
+    // set submit listener
+  }
 }
 
 //index.js

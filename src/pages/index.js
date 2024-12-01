@@ -112,7 +112,7 @@ const previewModalCloseButton =
 
 // function openModal(modal) {
 //   modal.classList.add("modal_opened");
-//   modal.addEventListener("mousedown", handleCloseOverlay);
+//   this._modal.addEventListener("mousedown", this._handleCloseOverlay);
 //   document.addEventListener("keydown", handleEscKeyPress);
 // }
 
@@ -122,20 +122,20 @@ const previewModalCloseButton =
 //   document.removeEventListener("keydown", handleEscKeyPress);
 // }
 
-function handleEscKeyPress(evt) {
-  if (evt.key === "Escape") {
-    const openedModal = document.querySelector(".modal_opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
-  }
-}
+// function handleEscKeyPress(evt) {
+//   if (evt.key === "Escape") {
+//     const openedModal = document.querySelector(".modal_opened");
+//     if (openedModal) {
+//       closeModal(openedModal);
+//     }
+//   }
+// }
 
-function handleCloseOverlay(evt) {
-  if (evt.target.classList.contains("modal_opened")) {
-    closeModal(evt.target);
-  }
-}
+// function handleCloseOverlay(evt) {
+//   if (evt.target.classList.contains("modal_opened")) {
+//     closeModal(evt.target);
+//   }
+// }
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Event Handlers                                                                                                                                                 */
@@ -183,6 +183,7 @@ profileEditButton.addEventListener("click", () => {
   profileModal.open();
 });
 
+// Close button listeners will be in Modal.js
 profileEditCloseButton.addEventListener("click", () => {
   profileModal.close();
 });
@@ -190,6 +191,8 @@ profileEditCloseButton.addEventListener("click", () => {
 previewModalCloseButton.addEventListener("click", () =>
   closeModal(previewImageModal)
 );
+
+// Submit listeners will go to ModalWithForm
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addNewCardButton.addEventListener("click", () => {
   addModal.open();
