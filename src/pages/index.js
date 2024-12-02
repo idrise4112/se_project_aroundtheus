@@ -147,16 +147,13 @@ function handleProfileEditSubmit(e) {
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
   profileDescription.textContent = profileDescriptionInput.value;
-  closeModal(profileEditModal);
-}
-function handleAddCardSubmit(e) {
-  e.preventDefault();
+  profileModal.close();
   const nameInput = document.querySelector("#profile-title-input");
   const descriptionInput = document.querySelector("#profile-description-input");
 
   const userInfo = new UserInfo({
     nameSelector: "#profile-title-input",
-    descriptionSelectorSelector: "#profile-description-input",
+    descriptionSelector: "#profile-description-input",
   });
 
   userInfo.setUserInfo({
@@ -165,22 +162,25 @@ function handleAddCardSubmit(e) {
   });
 }
 
-//const nameInput = document.getElementById("add-card-form");
-//const linkInput = document.getElementById("profile-add-description-input");
+function handleAddCardSubmit(e) {
+  e.preventDefault();
+  const cardData = {
+    name: nameInput.value,
+    link: linkInput.value,
+  };
 
-const cardData = {
-  name: nameInput.value,
-  link: linkInput.value,
-};
+  const cardView = createCard(cardData);
 
-const cardView = createCard(cardData);
+  cardListEl.prepend(cardView);
 
-cardListEl.prepend(cardView);
+  addModal.close();
 
-closeModal(addNewCardModal);
+  e.target.reset();
+  addCardValidator.disableButton();
+}
 
-e.target.reset();
-addCardValidator.disableButton();
+const nameInput = document.getElementById("add-card-form");
+const linkInput = document.getElementById("profile-add-description-input");
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
