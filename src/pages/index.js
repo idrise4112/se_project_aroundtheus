@@ -153,27 +153,34 @@ function handleAddCardSubmit(e) {
   e.preventDefault();
   const nameInput = document.querySelector("#profile-title-input");
   const descriptionInput = document.querySelector("#profile-description-input");
+
   const userInfo = new UserInfo({
     nameSelector: "#profile-title-input",
-    descriptionSelector: "#profile-description-input",
+    descriptionSelectorSelector: "#profile-description-input",
   });
-  //const nameInput = document.getElementById("add-card-form");
-  //const linkInput = document.getElementById("profile-add-description-input");
 
-  const cardData = {
+  userInfo.setUserInfo({
     name: nameInput.value,
-    link: linkInput.value,
-  };
-
-  const cardView = createCard(cardData);
-
-  cardListEl.prepend(cardView);
-
-  closeModal(addNewCardModal);
-
-  e.target.reset();
-  addCardValidator.disableButton();
+    job: descriptionInput.value,
+  });
 }
+
+//const nameInput = document.getElementById("add-card-form");
+//const linkInput = document.getElementById("profile-add-description-input");
+
+const cardData = {
+  name: nameInput.value,
+  link: linkInput.value,
+};
+
+const cardView = createCard(cardData);
+
+cardListEl.prepend(cardView);
+
+closeModal(addNewCardModal);
+
+e.target.reset();
+addCardValidator.disableButton();
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
