@@ -29,7 +29,6 @@ export default class Modal {
     }
   }
   setEventListeners() {
-    this._closeButton.addEventListener("click", () => this.close());
     this._modalElement.addEventListener("mousedown", this._handleCloseOverlay);
   }
 }

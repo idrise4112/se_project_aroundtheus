@@ -3,6 +3,8 @@ import FormValidator from "../scripts/FormValidator.js";
 import "./index.css";
 import Section from "../components/Section.js";
 import Modal from "../components/Modal.js";
+import ModalWithImage from "../components/ModalWithImage.js";
+import UserInfo from "../components/UserInfo.js";
 
 const initialCards = [
   {
@@ -149,9 +151,14 @@ function handleProfileEditSubmit(e) {
 }
 function handleAddCardSubmit(e) {
   e.preventDefault();
-
-  const nameInput = document.getElementById("add-card-form");
-  const linkInput = document.getElementById("profile-add-description-input");
+  const nameInput = document.querySelector("#profile-title-input");
+  const descriptionInput = document.querySelector("#profile-description-input");
+  const userInfo = new UserInfo({
+    nameSelector: "#profile-title-input",
+    descriptionSelector: "#profile-description-input",
+  });
+  //const nameInput = document.getElementById("add-card-form");
+  //const linkInput = document.getElementById("profile-add-description-input");
 
   const cardData = {
     name: nameInput.value,
@@ -174,7 +181,10 @@ function handleAddCardSubmit(e) {
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 const profileModal = new Modal({ modalSelector: "#profile-edit-modal" });
+profileModal.setEventListeners();
+
 const addModal = new Modal({ modalSelector: "#add-new-card-modal" });
+addModal.setEventListeners();
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -188,9 +198,7 @@ profileEditCloseButton.addEventListener("click", () => {
   profileModal.close();
 });
 
-previewModalCloseButton.addEventListener("click", () =>
-  closeModal(previewImageModal)
-);
+previewModalCloseButton.addEventListener("click", () => imageModal.close());
 
 // Submit listeners will go to ModalWithForm
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
@@ -203,11 +211,16 @@ addNewcardCloseButton.addEventListener("click", () => {
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
+const imageModal = new ModalWithImage({ modalSelector: "#modal-preview" });
+imageModal.setEventListeners();
+
 function handleImageClick(cardData) {
-  modalImage.src = cardData.link;
-  modalImage.alt = cardData.name;
-  previewText.textContent = cardData.name;
-  openModal(previewImageModal);
+  imageModal.open({ name: cardData.name, link: cardData.link });
+  // function handleImageClick(cardData) {
+  // imageModal.src = cardData.link;
+  // modalImage.alt = cardData.name;
+  // previewText.textContent = cardData.name;
+  //openModal(previewImageModal);
 }
 
 function createCard(cardData) {
