@@ -22,9 +22,4 @@ class ModalWithForm extends Modal {
   }
 }
 
-//index.js
-
-const newCardModal = new ModalWithForm("#add-new-card-modal");
-newCardModal.open();
-
-newCardModal.close();
+export default ModalWithForm;

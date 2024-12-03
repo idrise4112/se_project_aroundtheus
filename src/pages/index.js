@@ -1,11 +1,13 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-import "./index.css";
 import Section from "../components/Section.js";
 import Modal from "../components/Modal.js";
 import ModalWithImage from "../components/ModalWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import { initialCards } from "../utils/constants.js";
+import ModalWithForm from "../components/ModalWithForm.js";
+import { initialCards, config } from "../utils/constants.js";
+
+import "./index.css";
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
@@ -120,10 +122,13 @@ profileEditCloseButton.addEventListener("click", () => {
 
 previewModalCloseButton.addEventListener("click", () => imageModal.close());
 
+const newCardModal = new ModalWithForm("#add-new-card-modal");
+
 // Submit listeners will go to ModalWithForm
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 addNewCardButton.addEventListener("click", () => {
-  addModal.open();
+  //addModal.open();
+  newCardModal.open();
 });
 addNewcardCloseButton.addEventListener("click", () => {
   addModal.close();
@@ -143,15 +148,6 @@ function createCard(cardData) {
 
   return card.getView();
 }
-
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
 
 const addCardValidator = new FormValidator(config, addCardFormElement);
 addCardValidator.enableValidation();
