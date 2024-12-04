@@ -102,10 +102,16 @@ const linkInput = document.getElementById("profile-add-description-input");
 /*                                                                     Event Listener                                                                                                                                                 */
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-const profileModal = new Modal({ modalSelector: "#profile-edit-modal" });
+const profileModal = new ModalWithForm(
+  "#profile-edit-modal",
+  handleProfileEditSubmit
+);
 profileModal.setEventListeners();
 
-const addModal = new Modal({ modalSelector: "#add-new-card-modal" });
+const addModal = new ModalWithForm(
+  "#profile-edit-modal",
+  handleProfileEditSubmit
+);
 addModal.setEventListeners();
 
 profileEditButton.addEventListener("click", () => {
@@ -116,16 +122,18 @@ profileEditButton.addEventListener("click", () => {
 });
 
 // Close button listeners will be in Modal.js
-profileEditCloseButton.addEventListener("click", () => {
-  profileModal.close();
-});
+// profileEditCloseButton.addEventListener("click", () => {
+//   profileModal.close();
+// });
 
 previewModalCloseButton.addEventListener("click", () => imageModal.close());
 
 const newCardModal = new ModalWithForm("#add-new-card-modal");
+newCardModal.setEventListeners();
 
-// Submit listeners will go to ModalWithForm
+// TODO - Submit listeners will go to ModalWithForm
 profileEditForm.addEventListener("submit", handleProfileEditSubmit);
+
 addNewCardButton.addEventListener("click", () => {
   //addModal.open();
   newCardModal.open();

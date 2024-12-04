@@ -12,11 +12,17 @@ class ModalWithForm extends Modal {
     super.close();
   }
 
+  // getInputValues
+  // iterate through the inputs in the form
+  //   for each input, add the valu to an object
+  //   obj[input.name] = input.value;
+
   setEventListeners() {
     super.setEventListeners();
 
     this._modalForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      // call getInputValues and pass the result to handleFormSubmit
       this._handleFormSubmit();
     });
   }
