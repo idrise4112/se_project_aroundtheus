@@ -12,18 +12,25 @@ class ModalWithForm extends Modal {
     super.close();
   }
 
-  // getInputValues
-  // iterate through the inputs in the form
-  //   for each input, add the valu to an object
-  //   obj[input.name] = input.value;
+  getInputValues() {
+    const inputs = this._modalForm.querySelectorAll("input");
+    const values = {};
+
+    inputs.forEach((input) => {
+      values[input.name] = input.value;
+    });
+
+    return values;
+  }
 
   setEventListeners() {
     super.setEventListeners();
 
     this._modalForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
-      // call getInputValues and pass the result to handleFormSubmit
-      this._handleFormSubmit();
+      const formData = this.getInputValues();
+      this._handleFormSubmit(formData);
+      this._handleFormSubmit("submit");
     });
   }
 }
