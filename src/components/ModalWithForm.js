@@ -30,7 +30,6 @@ class ModalWithForm extends Modal {
       evt.preventDefault();
       const formData = this.getInputValues();
       this._handleFormSubmit(formData);
-      this._handleFormSubmit("submit");
     });
   }
 }

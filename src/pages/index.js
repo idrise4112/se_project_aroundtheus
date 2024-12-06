@@ -57,6 +57,7 @@ const previewModalCloseButton =
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function handleProfileEditSubmit(e) {
+  console;
   const nameInput = document.querySelector("#profile-title-input");
   const descriptionInput = document.querySelector("#profile-description-input");
 
@@ -67,7 +68,7 @@ function handleProfileEditSubmit(e) {
 
   userInfo.setUserInfo({
     name: nameInput.value,
-    job: descriptionInput.value,
+    description: descriptionInput.value,
   });
 }
 
@@ -115,6 +116,9 @@ profileEditButton.addEventListener("click", () => {
 });
 
 previewModalCloseButton.addEventListener("click", () => imageModal.close());
+
+// TODO - Submit listeners will go to ModalWithForm
+//profileEditForm.addEventListener("submit", handleProfileEditSubmit);
 
 addNewCardButton.addEventListener("click", () => {
   addModal.open();

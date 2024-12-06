@@ -1,5 +1,6 @@
 export default class Modal {
   constructor({ modalSelector }) {
+    console.log(modalSelector);
     this._modalElement = document.querySelector(modalSelector);
     this._closeButton = this._modalElement.querySelector(".modal__close");
 
@@ -32,7 +33,7 @@ export default class Modal {
   setEventListeners() {
     this._modalElement.addEventListener("mousedown", this._handleCloseOverlay);
     this._closeButton.addEventListener("click", () => {
-      this.close();
+      this._close();
     });
   }
 }
