@@ -31,9 +31,7 @@ export default class Modal {
   }
 
   setEventListeners() {
-    this._modalElement.addEventListener("mousedown", this._handleCloseOverlay);
-    this._closeButton.addEventListener("click", () => {
-      this._close();
-    });
+    const closeButton = this._modalElement.querySelector(".modal__close");
+    closeButton.addEventListener("click", () => this.close());
   }
 }

@@ -56,21 +56,22 @@ const previewModalCloseButton =
 /*                                                                     Event Handlers                                                                                                                                                 */
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
-function handleProfileEditSubmit(e) {
-  console;
-  const nameInput = document.querySelector("#profile-title-input");
-  const descriptionInput = document.querySelector("#profile-description-input");
-
-  const userInfo = new UserInfo({
-    nameSelector: "#profile-title-input",
-    descriptionSelector: "#profile-description-input",
-  });
-
-  userInfo.setUserInfo({
-    name: nameInput.value,
-    description: descriptionInput.value,
-  });
+function handleProfileEditSubmit(formValues) {
+  // you will receive the formValues object from the ModalWithForm class
+  const nameInput = formValues.title;
+  const descriptionInput = formValues.description;
 }
+// the selectors have to be the ones from the user information in profile, not the inputs
+const userInfo = new UserInfo({
+  nameSelector: ".profile__title",
+  descriptionSelector: ".profile__description",
+});
+
+// setUserInfo expects an object with title and description properties
+userInfo.setUserInfo({
+  title: nameInput,
+  description: descriptionInput,
+});
 
 function handleAddCardSubmit(e) {
   e.preventDefault();
