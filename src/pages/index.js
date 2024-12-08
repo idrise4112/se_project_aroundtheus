@@ -57,6 +57,7 @@ const previewModalCloseButton =
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function handleProfileEditSubmit(formValues) {
+  e.preventDefault();
   const nameInput = formValues.title;
   const descriptionInput = formValues.description;
   userInfo.setUserInfo({

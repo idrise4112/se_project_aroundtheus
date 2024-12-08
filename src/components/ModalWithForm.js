@@ -9,7 +9,7 @@ class ModalWithForm extends Modal {
 
   close() {
     this._modalForm.reset();
-    this._handleFormSubmit = super.close();
+    super.close();
   }
 
   getInputValues() {
@@ -27,9 +27,9 @@ class ModalWithForm extends Modal {
     super.setEventListeners();
 
     this._modalForm.addEventListener("submit", (evt) => {
-      evt.preventDefault();
+      evt.preventDefault(); // Prevent the default form submission
       const formData = this.getInputValues();
-      this._handleFormSubmit(formData);
+      this._handleFormSubmit(formData); // Correctly pass formData to the submission handler
     });
   }
 }
