@@ -63,7 +63,6 @@ function handleProfileEditSubmit(formValues) {
     name: nameInput,
     description: descriptionInput,
   });
-  profileModal.close();
 }
 
 const userInfo = new UserInfo({
