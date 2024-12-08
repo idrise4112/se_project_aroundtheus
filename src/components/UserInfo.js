@@ -12,8 +12,7 @@ export default class UserInfo {
   }
 
   setUserInfo({ name, description }) {
-    title: nameInput,
-    description: descriptionInput,
-    }
+    this._nameElement.textContent = name;
+    this._descriptionElement.textContent = description;
   }
-
+}

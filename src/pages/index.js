@@ -57,20 +57,18 @@ const previewModalCloseButton =
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function handleProfileEditSubmit(formValues) {
-  // you will receive the formValues object from the ModalWithForm class
   const nameInput = formValues.title;
   const descriptionInput = formValues.description;
+  userInfo.setUserInfo({
+    name: nameInput,
+    description: descriptionInput,
+  });
+  profileModal.close();
 }
-// the selectors have to be the ones from the user information in profile, not the inputs
+
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
   descriptionSelector: ".profile__description",
-});
-
-// setUserInfo expects an object with title and description properties
-userInfo.setUserInfo({
-  title: nameInput,
-  description: descriptionInput,
 });
 
 function handleAddCardSubmit(e) {
