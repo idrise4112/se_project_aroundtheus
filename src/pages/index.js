@@ -57,7 +57,6 @@ const previewModalCloseButton =
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 function handleProfileEditSubmit(formValues) {
-  e.preventDefault();
   const nameInput = formValues.title;
   const descriptionInput = formValues.description;
   userInfo.setUserInfo({
@@ -72,7 +71,6 @@ const userInfo = new UserInfo({
 });
 
 function handleAddCardSubmit(e) {
-  e.preventDefault();
   const cardData = {
     name: nameInput.value,
     link: linkInput.value,
@@ -84,7 +82,6 @@ function handleAddCardSubmit(e) {
 
   addModal.close();
 
-  e.target.reset();
   addCardValidator.disableButton();
 }
 
@@ -102,10 +99,7 @@ const profileModal = new ModalWithForm(
 );
 profileModal.setEventListeners();
 
-const addModal = new ModalWithForm(
-  "#add-new-card-modal",
-  handleProfileEditSubmit
-);
+const addModal = new ModalWithForm("#add-new-card-modal", handleAddCardSubmit);
 addModal.setEventListeners();
 
 profileEditButton.addEventListener("click", () => {
@@ -122,8 +116,6 @@ previewModalCloseButton.addEventListener("click", () => imageModal.close());
 addNewCardButton.addEventListener("click", () => {
   addModal.open();
 });
-
-addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 const imageModal = new ModalWithImage({ modalSelector: "#modal-preview" });
 imageModal.setEventListeners();
