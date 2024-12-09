@@ -83,9 +83,6 @@ function handleAddCardSubmit(inputValues) {
   addCardValidator.disableButton();
 }
 
-// const nameInput = document.getElementById("add-card-form");
-// const linkInput = document.getElementById("profile-add-description-input");
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Event Listener                                                                                                                                                 */
@@ -106,8 +103,6 @@ profileEditButton.addEventListener("click", () => {
   profileDescriptionInput.value = description;
   profileModal.open();
 });
-
-previewModalCloseButton.addEventListener("click", () => imageModal.close());
 
 addNewCardButton.addEventListener("click", () => {
   addModal.open();
