@@ -71,18 +71,20 @@ const userInfo = new UserInfo({
   descriptionSelector: ".profile__description",
 });
 
-function handleAddCardSubmit(e) {
+function handleAddCardSubmit() {
   const cardData = {
-    name: nameInput.value,
-    link: linkInput.value,
+    name: nameInput.title,
+    link: linkInput.url,
   };
 
   const cardView = createCard(cardData);
 
-  cardListEl.prepend(cardView);
+  cardSection.addItem(cardView);
+  console.log("why");
+  //cardListEl.prepend(cardView);
 
   addModal.close();
-
+  addCardFormElement.reset();
   addCardValidator.disableButton();
 }
 
