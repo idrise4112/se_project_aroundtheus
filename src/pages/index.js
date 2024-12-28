@@ -3,6 +3,7 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import ModalWithImage from "../components/ModalWithImage.js";
 import UserInfo from "../components/UserInfo.js";
+import Api from "../components/Api.js";
 import ModalWithForm from "../components/ModalWithForm.js";
 import { initialCards, config } from "../utils/constants.js";
 
@@ -13,6 +14,11 @@ import "./index.css";
 /*                                                                     Elements                                                                                                                                                 */
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1/cards",
+  authToken: "d88a2b9a-3c17-46af-b0b4-5a460d3316a6",
+});
+
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileTitleInput = document.querySelector("#profile-title-input");
