@@ -3,9 +3,9 @@ import FormValidator from "../components/FormValidator.js";
 import Section from "../components/Section.js";
 import ModalWithImage from "../components/ModalWithImage.js";
 import UserInfo from "../components/UserInfo.js";
-import Api from "../components/Api.js";
+import Api from "../utils/Api.js";
 import ModalWithForm from "../components/ModalWithForm.js";
-import { initialCards, config } from "../utils/constants.js";
+import { config } from "../utils/constants.js";
 
 import "./index.css";
 
@@ -15,8 +15,23 @@ import "./index.css";
 /*                                                                                                                                                                          */
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1/cards",
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
   authToken: "d88a2b9a-3c17-46af-b0b4-5a460d3316a6",
+});
+
+api.getCards().then((initialCards) => {
+  console.log(initialCards);
+  const cardSection = new Section(
+    {
+      items: initialCards,
+      renderer: (cardData) => {
+        const cardElement = createCard(cardData);
+        cardSection.addItem(cardElement);
+      },
+    },
+    ".cards__list"
+  );
+  cardSection.renderItems();
 });
 
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -30,18 +45,29 @@ const addNewCardModal = document.querySelector("#add-new-card-modal");
 const addCardFormElement = addNewCardModal.querySelector(".modal__form");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
-const cardSection = new Section(
-  {
-    items: initialCards,
-    renderer: (cardData) => {
-      const cardElement = createCard(cardData);
-      cardSection.addItem(cardElement);
-    },
-  },
-  ".cards__list"
-);
+/* function handleCardSubmit(evt) {
+  evt.preventDefault();
 
-cardSection.renderItems();
+  // Could be improved: use `[...evt.target.elements]` instead.
+  const formData = getInputValues(cardModalInputs);
+
+  // Could be improved: use `const button = evt.submitter` instead.
+  const button = evt.target.querySelector(".modal__button");
+  setButtonText(button, true);
+
+api
+    .addCard(formData)
+    .then((res) => {
+      // renderCard(res, "prepend"); // optional
+      const cardEl = getCardElement(res);
+      cardList.prepend(cardEl);
+      closeModal(cardModal);
+      cardForm.reset();
+      disableButton(button, validationConfig);
+    })
+    .catch(console.error)
+    .finally(() => setButtonText(button, false));
+} */
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
