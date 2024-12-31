@@ -19,9 +19,11 @@ const api = new Api({
   authToken: "d88a2b9a-3c17-46af-b0b4-5a460d3316a6",
 });
 
+let cardSection;
+
 api.getCards().then((initialCards) => {
   console.log(initialCards);
-  const cardSection = new Section(
+  cardSection = new Section(
     {
       items: initialCards,
       renderer: (cardData) => {
@@ -101,14 +103,16 @@ const userInfo = new UserInfo({
 });
 
 function handleAddCardSubmit(inputValues) {
+  console.log(inputValues);
   const cardData = {
     name: inputValues.title,
     link: inputValues.url,
   };
 
   const cardView = createCard(cardData);
-
-  cardSection.addItem(cardView);
+  api.addCards(cardData).then((res) => {
+    cardSection.addItem(cardView);
+  });
 
   addModal.close();
   addCardFormElement.reset();

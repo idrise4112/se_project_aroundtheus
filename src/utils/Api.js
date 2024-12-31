@@ -60,14 +60,16 @@ class Api {
       // if the server returns an error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
+//https://around-api.en.tripleten-services.com/v1/cards
 
-  addCards = (name, link) =>
-    fetch("https://around-api.en.tripleten-services.com/v1/cards", {
+  addCards = ({ name, link }) => {
+    console.log({ name, link });
+    return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: {
         authorization: this._authToken,
       },
-      body: JSON.stringify({ name, link }), // "name": "the name", "link": "https://..." }
+      body: JSON.stringify({ name, link }),
     }).then((res) => {
       if (res.ok) {
         return res.json();
@@ -75,6 +77,7 @@ class Api {
       // if the server returns an error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
+  };
 
   deleteCard = (cardId) =>
     fetch(`${this._baseUrl}/cards/${cardId}`, {
