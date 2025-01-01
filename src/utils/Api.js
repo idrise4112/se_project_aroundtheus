@@ -9,6 +9,7 @@ class Api {
       method: "GET",
       headers: {
         authorization: this._authToken,
+        "Content-Type": "application/json",
       },
     }).then((res) => {
       if (res.ok) {
@@ -37,6 +38,7 @@ class Api {
       method: "PATCH",
       headers: {
         authorization: this._authToken,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ newAvatar }),
     }).then((res) => {
@@ -60,7 +62,7 @@ class Api {
       // if the server returns an error, reject the promise
       return Promise.reject(`Error: ${res.status}`);
     });
-//https://around-api.en.tripleten-services.com/v1/cards
+  //https://around-api.en.tripleten-services.com/v1/cards
 
   addCards = ({ name, link }) => {
     console.log({ name, link });
@@ -68,6 +70,7 @@ class Api {
       method: "POST",
       headers: {
         authorization: this._authToken,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, link }),
     }).then((res) => {
@@ -95,7 +98,9 @@ class Api {
     fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: {
-        authorization: "d88a2b9a-3c17-46af-b0b4-5a460d3316a6",
+        authorization: this,
+        _authToken,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, link }),
     }).then((res) => {
@@ -109,6 +114,7 @@ class Api {
       method: "DELETE",
       headers: {
         authorization: this._authToken,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, link }),
     }).then((res) => {
