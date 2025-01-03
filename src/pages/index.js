@@ -19,8 +19,6 @@ const api = new Api({
   authToken: "d88a2b9a-3c17-46af-b0b4-5a460d3316a6",
 });
 
-api.deleteCard("").then((res) => console.log(res));
-
 let cardSection;
 
 api.getCards().then((initialCards) => {
@@ -113,6 +111,16 @@ api.getUsers().then((userData) => {
     description: userData.about,
   });
 });
+
+const deleteModal = new ModalWithForm( {
+
+function handleCardDelete(card, cardId) {
+  confirmDelete.setEventListener(() => {
+    // in here you handle the whole api delete functionality
+  });
+  confirmDelete.open();
+}
+}
 
 function handleAddCardSubmit(inputValues) {
   const cardData = {
