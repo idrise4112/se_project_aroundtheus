@@ -2,10 +2,15 @@ export default class Card {
   constructor({ name, link }, cardSelector, handleImageClick) {
     this._name = name;
     this._link = link;
-
+    // this._id = data.id;
     this._cardSelector = cardSelector;
     this._handleImageClick = handleImageClick;
   }
+
+  // getID() {
+  //   return this._id;
+  // }
+
   _setEventListeners() {
     this._cardElement
       .querySelector(".card__like-button")

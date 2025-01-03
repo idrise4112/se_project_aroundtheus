@@ -19,6 +19,8 @@ const api = new Api({
   authToken: "d88a2b9a-3c17-46af-b0b4-5a460d3316a6",
 });
 
+api.deleteCard("").then((res) => console.log(res));
+
 let cardSection;
 
 api.getCards().then((initialCards) => {
@@ -90,6 +92,9 @@ const previewModalCloseButton =
 function handleProfileEditSubmit(formValues) {
   const nameInput = formValues.title;
   const descriptionInput = formValues.description;
+
+  api.editUserInfo(nameInput, descriptionInput);
+  // call editUserUnfo method to fetch to the server and update the userInfo on the server
   userInfo.setUserInfo({
     name: nameInput,
     description: descriptionInput,
@@ -102,15 +107,21 @@ const userInfo = new UserInfo({
   descriptionSelector: ".profile__description",
 });
 
+api.getUsers().then((userData) => {
+  userInfo.setUserInfo({
+    name: userData.name,
+    description: userData.about,
+  });
+});
+
 function handleAddCardSubmit(inputValues) {
-  console.log(inputValues);
   const cardData = {
     name: inputValues.title,
     link: inputValues.url,
   };
 
   const cardView = createCard(cardData);
-  api.addCards(cardData).then((res) => {
+  api.addCard(cardData).then((res) => {
     cardSection.addItem(cardView);
   });
 
