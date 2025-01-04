@@ -8,6 +8,7 @@ import ModalWithForm from "../components/ModalWithForm.js";
 import { config } from "../utils/constants.js";
 
 import "./index.css";
+import ModalWithConfirm from "../components/ModalWithConfirm.js";
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
@@ -112,16 +113,18 @@ api.getUsers().then((userData) => {
   });
 });
 
-const deleteModal = new ModalWithForm( {
+const deleteModal = new ModalWithConfirm("#card-delete");
+deleteModal.setEventListeners();
 
 function handleCardDelete(card, cardId) {
-  confirmDelete.setEventListener(() => {
-    // in here you handle the whole api delete functionality
+  deleteModal.setSubmitFunction(() => {
+    // call the api method for deleting the card
+    api.deleteCard(card).then();
+    // on the .then block you need to also remove the card from the DOM
   });
-  confirmDelete.open();
+  // after you set the function you open the modal
+  deleteModal.open();
 }
-}
-
 function handleAddCardSubmit(inputValues) {
   const cardData = {
     name: inputValues.title,

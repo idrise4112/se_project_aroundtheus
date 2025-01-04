@@ -83,7 +83,6 @@
         </form>
       </div>
     </div>
-    
     <div class="modal modal_preview" id="modal-preview">
       <div class="modal__container modal__preview-image">
         <button  type="button"aria-label="close modal" class="modal__close modal__close-image"></button>
@@ -132,32 +131,30 @@
           Create
         </button>
         </form>
-        
       </div>
       </div>
-      <div class="modal" id="modal">
-        <div class="modal__container">
-            <button aria-label="delete modal" class="modal__close">&times;</button>
-            <p class="modal__heading">New Place</p>
-            <form class="modal__form">
-                <label class="modal__label" for="place">Place Name</label>
-                <input type="text" id="place" name="place" class="modal__input" required>
-                <button type="submit" class="modal__submit">Submit</button>
-                <button type="button" class="modal__delete" id="modal-delete">Delete</button>
-            </form>
-        </div>
-    </div>
-    
       <template id="card-template">
         <li class="card">
           <img src="" alt="" class="card__image" />
           <div class="card__description">
             <h2 class="card__title"></h2>
             <button class="card__like-button"></button>
-            <button class="card__delete-button"></button>
+            <button  id= "card-delete" class="card__delete-button"></button>
           </div>
         </li>
       </template>
     </div>
   </body>
 </html>
+<!-- <div id="deleteModal" class="modal">
+  <div class="modalcontainer">
+      <span class="modalclose" id="closeDeleteModal">&times;</span>
+      <form class="modalform">
+        <p class="modalheading">Confirm Delete</p>
+  
+        <p>Are you sure you want to delete this card?</p>
+        <button" class="carddelete-button"></button>
+        <button id="cancelDelete" type = "submit"class="modalbutton">Cancel</button>
+      </form>
+  </div>
+</div> -->
