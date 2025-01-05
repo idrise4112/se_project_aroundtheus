@@ -90,6 +90,15 @@
         <p class="modal__caption"></p>
       </div>
     </div>
+    <div id="delete-modal" class="modal modal__delete">
+      <div class="modal__container modal__delete-image">
+          <form class="modal__form">
+              <p class="modal__heading">Are you sure?</p>
+              <button id="confirmDelete" type="submit" class="modal__button modal__button_confirm">Yes</button>
+          </form>
+      </div>
+    </div>
+  
     <div class="modal" id="add-new-card-modal">
       <div class="modal__container">
         <button aria-label="close modal" class="modal__close"></button>
@@ -139,22 +148,10 @@
           <div class="card__description">
             <h2 class="card__title"></h2>
             <button class="card__like-button"></button>
-            <button  id= "card-delete" class="card__delete-button"></button>
+            <button  id="card-delete" class="card__delete-button"></button>
           </div>
         </li>
       </template>
     </div>
   </body>
 </html>
-<!-- <div id="deleteModal" class="modal">
-  <div class="modalcontainer">
-      <span class="modalclose" id="closeDeleteModal">&times;</span>
-      <form class="modalform">
-        <p class="modalheading">Confirm Delete</p>
-  
-        <p>Are you sure you want to delete this card?</p>
-        <button" class="carddelete-button"></button>
-        <button id="cancelDelete" type = "submit"class="modalbutton">Cancel</button>
-      </form>
-  </div>
-</div> -->

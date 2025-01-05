@@ -63,6 +63,14 @@
   background-size: contain;
 }
 
+.modal__delete-image {
+  width: 430px;
+  height: 181px;
+  top: 270px;
+  right: 425px;
+  position: absolute;
+}
+
 .modal__form {
   flex-direction: column;
   display: flex;
@@ -77,6 +85,9 @@
   cursor: pointer;
   border: none;
   font-size: 18px;
+}
+
+.modal__button_confirm {
 }
 
 .modal__preview-image {

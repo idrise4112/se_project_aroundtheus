@@ -113,18 +113,6 @@ api.getUsers().then((userData) => {
   });
 });
 
-const deleteModal = new ModalWithConfirm("#card-delete");
-deleteModal.setEventListeners();
-
-function handleCardDelete(card, cardId) {
-  deleteModal.setSubmitFunction(() => {
-    // call the api method for deleting the card
-    api.deleteCard(card).then();
-    // on the .then block you need to also remove the card from the DOM
-  });
-  // after you set the function you open the modal
-  deleteModal.open();
-}
 function handleAddCardSubmit(inputValues) {
   const cardData = {
     name: inputValues.title,
@@ -173,12 +161,48 @@ function handleImageClick(cardData) {
 }
 
 function createCard(cardData) {
-  const card = new Card(cardData, "#card-template", handleImageClick);
+  const card = new Card(
+    cardData,
+    "#card-template",
+    handleImageClick,
+    handleCardDelete
+  );
 
   return card.getView();
 }
+
+// function cardDeleteShittyName(card) {
+//   console.log(card);
+//   // api.blablha.then(() => {
+//   // remove card itself
+//   //})
+
+const deleteModal = new ModalWithConfirm("#delete-modal");
+deleteModal.setEventListeners();
+// deleteModal.setEventListeners();
+
+//  function handleCardDelete(Card) {
+//   deleteModal.setSubmitFunction((card)
+//     api.deleteCard(card) .then(() => {
+// //    on the .then block you need to also remove the card from the DOM
+
+// //       // after you set the function you open the modal
+//        .deleteModal.open();
+// });
+// }
 
 const addCardValidator = new FormValidator(config, addCardFormElement);
 addCardValidator.enableValidation();
 const editProfileValidator = new FormValidator(config, profileEditForm);
 editProfileValidator.enableValidation();
+
+function handleCardDelete(card) {
+  deleteModal.open();
+
+  deleteModal.setSubmitFunction(() => {
+    api.deleteCard(card_id).then(() => {
+      card.remove();
+      deleteModal.close();
+    });
+  });
+}
