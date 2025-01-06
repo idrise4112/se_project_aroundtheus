@@ -69,6 +69,8 @@
   top: 270px;
   right: 425px;
   position: absolute;
+  margin-top: -6px;
+  margin-right: -52px;
 }
 
 .modal__form {
@@ -88,6 +90,7 @@
 }
 
 .modal__button_confirm {
+  margin-top: -20px;
 }
 
 .modal__preview-image {

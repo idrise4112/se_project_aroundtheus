@@ -179,30 +179,18 @@ function createCard(cardData) {
 
 const deleteModal = new ModalWithConfirm("#delete-modal");
 deleteModal.setEventListeners();
-// deleteModal.setEventListeners();
+function handleCardDelete(card) {
+  deleteModal.open();
 
-//  function handleCardDelete(Card) {
-//   deleteModal.setSubmitFunction((card)
-//     api.deleteCard(card) .then(() => {
-// //    on the .then block you need to also remove the card from the DOM
-
-// //       // after you set the function you open the modal
-//        .deleteModal.open();
-// });
-// }
+  deleteModal.setSubmitFunction(() => {
+    api.deleteCard(card.id).then(() => {
+      card.cardElement.remove();
+      deleteModal.close();
+    });
+  });
+}
 
 const addCardValidator = new FormValidator(config, addCardFormElement);
 addCardValidator.enableValidation();
 const editProfileValidator = new FormValidator(config, profileEditForm);
 editProfileValidator.enableValidation();
-
-function handleCardDelete(card) {
-  deleteModal.open();
-
-  deleteModal.setSubmitFunction(() => {
-    api.deleteCard(card_id).then(() => {
-      card.remove();
-      deleteModal.close();
-    });
-  });
-}
