@@ -29,12 +29,12 @@ export default class Card {
         });
       });
 
-    // this._cardElement
-    // .querySelector(".card__delete-button")
-    // .addEventListener("click", () => {
-    //   // this._handleDeleteCard();
-    //   this._handleCardDelete(this._cardElement);
-    // });
+    this._cardElement
+      .querySelector(".card__delete-button")
+      .addEventListener("click", () => {
+        // this._handleDeleteCard();
+        this._handleCardDelete(this._cardElement);
+      });
 
     this._cardElement
       .querySelector(".card__image")
