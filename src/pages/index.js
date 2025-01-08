@@ -129,6 +129,14 @@ function handleAddCardSubmit(inputValues) {
   addCardValidator.disableButton();
 }
 
+function handLikeIcon(card) {
+  if (isLiked) {
+    api.dislikeCard(card).then(() => {
+      toggleLikeIcon();
+    });
+  }
+}
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Event Listener                                                                                                                                                 */
@@ -170,12 +178,6 @@ function createCard(cardData) {
 
   return card.getView();
 }
-
-// function cardDeleteShittyName(card) {
-//   console.log(card);
-//   // api.blablha.then(() => {
-//   // remove card itself
-//   //})
 
 const deleteModal = new ModalWithConfirm("#delete-modal");
 deleteModal.setEventListeners();

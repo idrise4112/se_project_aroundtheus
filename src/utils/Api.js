@@ -81,12 +81,12 @@ class Api {
       body: JSON.stringify({
         name,
         link,
-      }).then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
     });
   };
 
@@ -95,7 +95,7 @@ class Api {
       method: "DELETE",
       headers: {
         authorization: this._authToken,
-        "content-Type": "application/json",
+        "Content-Type": "application/json",
       },
     }).then((res) => {
       if (res.ok) {
