@@ -21,23 +21,8 @@ export default class Card {
     this._cardElement
       .querySelector(".card__like-button")
       .addEventListener("click", () => {
-        this._handleLikeIcon({
-          id: this._id,
-        });
-        // and pass it id and isLiked
-        this._handleLikeIcon(this);
+        this._handleLikeClick(this);
       });
-
-    // _setEventListeners() {
-    //   this._cardElement
-    //       .querySelector(".card__like-button")
-    //       .addEventListener("click", () => {
-    //           this._handleLikeIcon({
-    //               id: this._id,
-    //               isLiked: this._isliked
-    //           });
-    //       });
-    // }
 
     this._cardElement
       .querySelector(".card__delete-button")

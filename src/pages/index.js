@@ -129,10 +129,14 @@ function handleAddCardSubmit(inputValues) {
   addCardValidator.disableButton();
 }
 
-function handLikeIcon(card) {
-  if (isLiked) {
-    api.dislikeCard(card).then(() => {
-      toggleLikeIcon();
+function handleLikeClick(card) {
+  if (card._isLiked) {
+    api.dislikeCard(card._id).then(() => {
+      card.toggleLikeIcon();
+    });
+  } else {
+    api.likeCard(card._id).then(() => {
+      card.toggleLikeIcon();
     });
   }
 }
@@ -173,7 +177,8 @@ function createCard(cardData) {
     cardData,
     "#card-template",
     handleImageClick,
-    handleCardDelete
+    handleCardDelete,
+    handleLikeClick
   );
 
   return card.getView();
