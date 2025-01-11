@@ -107,7 +107,7 @@ class Api {
     fetch(`${this._baseUrl}/cards/${cardId}/likes`, {
       method: "PUT",
       headers: {
-        authorization: this_authToken,
+        authorization: this._authToken,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ name, link }),

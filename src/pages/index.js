@@ -141,6 +141,10 @@ function handleLikeClick(card) {
   }
 }
 
+const handleAvatarModal = new ModalWithForm("#avatar-add-button", (data) => {
+  // Set user avatar
+});
+
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Event Listener                                                                                                                                                 */
