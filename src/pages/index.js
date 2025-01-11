@@ -141,8 +141,14 @@ function handleLikeClick(card) {
   }
 }
 
-const handleAvatarModal = new ModalWithForm("#avatar-add-button", (data) => {
-  // Set user avatar
+const avatarModal = new ModalWithForm("#avatar-modal", (data) => {
+  api.updateAvatar(newAvatar);
+});
+avatarModal.setEventListeners();
+
+const openAvatarButton = document.querySelector(".profile__image-btn");
+openAvatarButton.addEventListener("click", () => {
+  avatarModal.open();
 });
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/

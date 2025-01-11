@@ -16,7 +16,7 @@
     "title button"
     "description description";
   align-items: center;
-  grid-template-columns: minmax(auto, 375px) auto;
+  /* grid-template-columns: minmax(auto, 375px) auto; */
 }
 
 .profile__image-btn {
