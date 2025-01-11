@@ -19,6 +19,25 @@
   grid-template-columns: minmax(auto, 375px) auto;
 }
 
+.profile__image-btn {
+  background-image: url(../images/EditButton.svg);
+  background-color: transparent;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+  border: 1px solid white;
+  position: absolute;
+  margin-left: -95px;
+  margin-top: 51px;
+}
+
+.profile__image-btn :hover {
+  cursor: pointer;
+  opacity: 60%;
+}
+
 @media screen and (max-width: 765px) {
   .profile__info {
     display: flex;
