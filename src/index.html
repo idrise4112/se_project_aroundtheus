@@ -16,18 +16,35 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <div class="modal" id="avatarmodal">
+          <div class="profile__image-container" >
+          <img
+          src="<%=require('./images/jacques.png')%>"
+          alt="avatar jacques"
+          class="profile__image">
+          <button type="submit"   aria-label="Change Profile Image" class="profile__image-btn">Change</button>
+        <div class="profile__info">
+          
+          <div class="modal" id="avatar-modal">
             <div class="modal__container">
-              <button aria-label="Close modal" type="button" class="modal__close"></button>
-              <h3 class="modal__heading">Are you sure?</h3>
-              <form class="modal__form" id="remove-card-form">
-                <label class="modal__label">
-                  <input id="avatar-input" class="modal__input" name="avatar" type="url" required />
-       <span id="avatar-input-error" class="modal__error">Please fill out this field.</span>
-                </label>
-                <button type="submit" class="button modal__button">Yes</button>
+              <button class="modal__close" type="button" id="avatar-add-button" title="add avatar"></button>
+
+        <form class="modal__form profile avatar-form">
+                <h1 class="modal__title">Avatar Picture</h1>
+                <input type="url" 
+                       name="url" 
+                       id="avatar-picture" 
+                       class="modal__input modal__input_type_url" 
+                       placeholder="Avatar URL" required>
+                <span class="modal__error" id="avatar-picture-error"></span>
+                <button class="modal__button" type="submit" disabled>
+                  <span class="modal__button-text">Save</span>
+                </button>
+                
               </form>
+
             </div>
+          </div>
+        </div>
           </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
@@ -168,18 +185,25 @@
 
 
 
-   <div class="modal" id="avatar-modal"
-  <div class ="modal _container">
-   sbutton class="modal close" type="button" id="avatar-edit-button" ></button>
-    <form class="modal _form profile avatar-form"s 
-    <h1 class="modal title">Avatar Picture‹/h1> 
-      <input type="url" 
-      name="url" id-"avatar-picture"
-       class="modal input modal _input_type url" 
-       placeholder="Avatar URL" required «span class="modal error"' id="avatar-picture-error">
-      </span> button class="modal _button" type="submit" disabled> 
-    <span class="modal_ _button-text"›Save‹/span> 
-    </button> 
-  </form>
- </div> 
-</div>
+  <!-- <div class="profile__image-container">
+    <img src="path/to/your/image.jpg" alt="Profile Image" class="profile__image" />
+    <button aria-label="Change Profile Image" class="profile__image-btn">Change</button>
+  </div>
+
+  <div class="modal" id="avatarmodal" aria-hidden="true" role="dialog">
+    <div class="modal__container">
+      <button aria-label="Close modal" type="button" class="modal__close">×</button>
+      <h3 class="modal__heading">Are you sure?</h3>
+      <form class="modal__form" id="remove-card-form" novalidate>
+        <label class="modal__label" for="avatar-input">Avatar URL</label>
+        <input id="avatar-input" class="modal__input" name="avatar" type="url" required />
+        <span id="avatar-input-error" class="modal__error">Please fill out this field.</span>
+        <button type="submit" class="button modal__button">Yes</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="profile__info">
+    <!-- Your profile info goes here -->
+  </div>
+</section> -->
