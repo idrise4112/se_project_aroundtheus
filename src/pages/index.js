@@ -142,7 +142,12 @@ function handleLikeClick(card) {
 }
 
 const avatarModal = new ModalWithForm("#avatar-modal", ({ url }) => {
-  api.updateAvatar(url).then((res) => {});
+  api
+    .updateAvatar(url)
+    .then((res) => {})
+    .catch((err) => {
+      console.error("Failed to update avatar:", err);
+    });
 });
 avatarModal.setEventListeners();
 
@@ -150,6 +155,10 @@ const openAvatarButton = document.querySelector(".profile__image-btn");
 openAvatarButton.addEventListener("click", () => {
   avatarModal.open();
 });
+
+const avatarForm = document.querySelector("#avatar-modal .modal__form");
+const avatarFormValidator = new FormValidator(avatarForm);
+avatarFormValidator.enableValidation();
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
