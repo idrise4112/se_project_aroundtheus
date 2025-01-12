@@ -63,14 +63,12 @@
   background-size: contain;
 }
 
-.modal__delete_image {
+.modal__deleteimg {
   width: 430px;
   height: 181px;
   top: 290px;
-  right: 777px;
   position: absolute;
   margin-top: -6px;
-  margin-right: -52px;
 }
 
 .modal__form {
@@ -179,9 +177,11 @@
     margin-top: -33px;
     margin-left: -15px;
   }
-  .modal__delete-image {
+  .modal__deleteimg {
     width: 282px;
     height: 322px;
+    margin-top: 6px;
+    margin-right: 15px;
   }
 }
 .title {
