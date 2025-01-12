@@ -17,6 +17,7 @@ class ModalWithConfirm extends Modal {
         event.preventDefault();
         this._submitFunction();
       });
+    super.setEventListeners();
   }
 }
 

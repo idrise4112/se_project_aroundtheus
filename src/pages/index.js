@@ -141,8 +141,8 @@ function handleLikeClick(card) {
   }
 }
 
-const avatarModal = new ModalWithForm("#avatar-modal", (data) => {
-  api.updateAvatar(newAvatar);
+const avatarModal = new ModalWithForm("#avatar-modal", ({ url }) => {
+  api.updateAvatar(url).then((res) => {});
 });
 avatarModal.setEventListeners();
 

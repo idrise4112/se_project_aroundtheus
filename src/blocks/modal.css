@@ -63,11 +63,11 @@
   background-size: contain;
 }
 
-.modal__delete-image {
+.modal__delete_image {
   width: 430px;
   height: 181px;
-  top: 270px;
-  right: 425px;
+  top: 290px;
+  right: 777px;
   position: absolute;
   margin-top: -6px;
   margin-right: -52px;
@@ -133,6 +133,11 @@
 
 .modal__input_type_error {
   border-bottom: 1px solid rgb(224, 12, 12);
+}
+
+.modal__avatar {
+  width: 430px;
+  height: 272px;
 }
 
 @media screen and (max-width: 765px) {
