@@ -156,9 +156,24 @@ openAvatarButton.addEventListener("click", () => {
   avatarModal.open();
 });
 
-const avatarForm = document.querySelector("#avatar-modal .modal__form");
-const avatarFormValidator = new FormValidator(avatarForm);
+const avatarForm = document.querySelector("#avatar-form");
+const avatarFormValidator = new FormValidator(config, avatarForm);
 avatarFormValidator.enableValidation();
+console.log(12345);
+
+// const avatarModal = new ModalWithForm("#Avatar-modal", ({ url }) => {
+//   api
+//     .updateAvatar(url)
+//     .then((res) => {
+//       userInfo.setAvatar(res.avatar); // pass the value from the res if you have the setAvatar method defined
+//       avatarForm.reset();
+//       avatarModal.close();
+//     })
+//     .catch((err) => {
+//       console.error("Failed to update avatar:", err);
+//     });
+// });
+// avatarModal.setEventListeners();
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */

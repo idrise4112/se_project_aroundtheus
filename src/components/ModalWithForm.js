@@ -24,7 +24,6 @@ class ModalWithForm extends Modal {
 
   setEventListeners() {
     this._modalForm.addEventListener("submit", (evt) => {
-      this._handleFormSubmit(url);
       evt.preventDefault(); // Prevent the default form submission
       const formData = this.getInputValues();
       this._handleFormSubmit(formData); // Correctly pass formData to the submission handler

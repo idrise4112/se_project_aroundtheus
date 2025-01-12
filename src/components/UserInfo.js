@@ -16,3 +16,8 @@ export default class UserInfo {
     this._descriptionElement.textContent = description;
   }
 }
+//   setAvatar(avatarUrl) {
+//     // New addition
+//     this._avatarElement.src = avatarUrl;
+//   }
+//
