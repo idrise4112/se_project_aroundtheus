@@ -48,30 +48,6 @@ const addNewCardModal = document.querySelector("#add-new-card-modal");
 const addCardFormElement = addNewCardModal.querySelector(".modal__form");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 
-/* function handleCardSubmit(evt) {
-  evt.preventDefault();
-
-  // Could be improved: use `[...evt.target.elements]` instead.
-  const formData = getInputValues(cardModalInputs);
-
-  // Could be improved: use `const button = evt.submitter` instead.
-  const button = evt.target.querySelector(".modal__button");
-  setButtonText(button, true);
-
-api
-    .addCard(formData)
-    .then((res) => {
-      // renderCard(res, "prepend"); // optional
-      const cardEl = getCardElement(res);
-      cardList.prepend(cardEl);
-      closeModal(cardModal);
-      cardForm.reset();
-      disableButton(button, validationConfig);
-    })
-    .catch(console.error)
-    .finally(() => setButtonText(button, false));
-} */
-
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
 /*                                                                     Functions                                                                                                                                                */
@@ -93,7 +69,6 @@ function handleProfileEditSubmit(formValues) {
   const descriptionInput = formValues.description;
 
   api.editUserInfo(nameInput, descriptionInput);
-  // call editUserUnfo method to fetch to the server and update the userInfo on the server
   userInfo.setUserInfo({
     name: nameInput,
     description: descriptionInput,
@@ -104,6 +79,7 @@ function handleProfileEditSubmit(formValues) {
 const userInfo = new UserInfo({
   nameSelector: ".profile__title",
   descriptionSelector: ".profile__description",
+  avatarSelector: ".profile__image",
 });
 
 api.getUsers().then((userData) => {
@@ -111,6 +87,7 @@ api.getUsers().then((userData) => {
     name: userData.name,
     description: userData.about,
   });
+  userInfo.setAvatar(userData.avatar);
 });
 
 function handleAddCardSubmit(inputValues) {
@@ -144,7 +121,11 @@ function handleLikeClick(card) {
 const avatarModal = new ModalWithForm("#avatar-modal", ({ url }) => {
   api
     .updateAvatar(url)
-    .then((res) => {})
+    .then((res) => {
+      userInfo.setAvatar(res.avatar); // Update the avatar src with the response data
+      avatarForm.reset();
+      avatarModal.close();
+    })
     .catch((err) => {
       console.error("Failed to update avatar:", err);
     });
@@ -155,25 +136,6 @@ const openAvatarButton = document.querySelector(".profile__image-btn");
 openAvatarButton.addEventListener("click", () => {
   avatarModal.open();
 });
-
-const avatarForm = document.querySelector("#avatar-form");
-const avatarFormValidator = new FormValidator(config, avatarForm);
-avatarFormValidator.enableValidation();
-console.log(12345);
-
-// const avatarModal = new ModalWithForm("#Avatar-modal", ({ url }) => {
-//   api
-//     .updateAvatar(url)
-//     .then((res) => {
-//       userInfo.setAvatar(res.avatar); // pass the value from the res if you have the setAvatar method defined
-//       avatarForm.reset();
-//       avatarModal.close();
-//     })
-//     .catch((err) => {
-//       console.error("Failed to update avatar:", err);
-//     });
-// });
-// avatarModal.setEventListeners();
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 /*                                                                                                                                                                          */
