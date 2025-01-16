@@ -14,7 +14,7 @@ export default class Card {
     this._handleImageClick = handleImageClick;
     this._handleCardDelete = handleCardDelete;
     this._handleLikeClick = handleLikeClick;
-    this._isliked = isLiked;
+    this._isLiked = isLiked;
   }
 
   _setEventListeners() {
@@ -63,6 +63,12 @@ export default class Card {
     this._cardElement.querySelector(".card__image").src = this._link;
     this._cardElement.querySelector(".card__image").alt = this._name;
     // call this._setEventListeners
+
+    if (this._isLiked) {
+      this._cardElement
+        .querySelector(".card__like-button")
+        .classList.add("card__like-button_active");
+    }
 
     return this._cardElement;
   }

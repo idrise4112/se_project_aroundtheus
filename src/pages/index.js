@@ -96,9 +96,8 @@ function handleAddCardSubmit(inputValues) {
     link: inputValues.url,
   };
 
-  const cardView = createCard(cardData);
   api.addCard(cardData).then((res) => {
-    cardSection.addItem(cardView);
+    cardSection.addItem(createCard(res));
   });
 
   addModal.close();
@@ -122,13 +121,12 @@ const avatarModal = new ModalWithForm("#avatar-modal", ({ url }) => {
   api
     .updateAvatar(url)
     .then((res) => {
-      userInfo.setAvatar(res.avatar); // Update the avatar src with the response data
+      userInfo.setAvatar(res.avatar);
       avatarForm.reset();
-      avatarModal.close();
+
+      updateAvatar.close();
     })
-    .catch((err) => {
-      console.error("Failed to update avatar:", err);
-    });
+    .catch((err) => {});
 });
 avatarModal.setEventListeners();
 
