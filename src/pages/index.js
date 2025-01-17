@@ -68,12 +68,24 @@ function handleProfileEditSubmit(formValues) {
   const nameInput = formValues.title;
   const descriptionInput = formValues.description;
 
-  api.editUserInfo(nameInput, descriptionInput);
-  userInfo.setUserInfo({
-    name: nameInput,
-    description: descriptionInput,
-  });
-  profileModal.close();
+  profileModal.setLoading(true);
+
+  api
+    .editUserInfo(nameInput, descriptionInput)
+    .then(() => {
+      userInfo.setUserInfo({
+        name: nameInput,
+        description: descriptionInput,
+      });
+      profileModal.close();
+    })
+    .catch((err) => {
+      console.error(err);
+      // Add user notification for error here if needed
+    })
+    .finally(() => {
+      profileModal.setLoading(false);
+    });
 }
 
 const userInfo = new UserInfo({
@@ -96,13 +108,21 @@ function handleAddCardSubmit(inputValues) {
     link: inputValues.url,
   };
 
-  api.addCard(cardData).then((res) => {
-    cardSection.addItem(createCard(res));
-  });
-
-  addModal.close();
-  addCardFormElement.reset();
-  addCardValidator.disableButton();
+  addModal.setLoading(true);
+  api
+    .addCard(cardData)
+    .then((res) => {
+      cardSection.addItem(createCard(res));
+      addModal.close();
+      addCardFormElement.reset();
+      addCardValidator.disableButton();
+    })
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      addModal.setLoading(false);
+    });
 }
 
 function handleLikeClick(card) {
