@@ -118,16 +118,23 @@ function handleLikeClick(card) {
 }
 
 const avatarModal = new ModalWithForm("#avatar-modal", ({ url }) => {
+  const avatarForm = document.querySelector("#avatar-form");
+  avatarModal.setLoading(true);
   api
     .updateAvatar(url)
     .then((res) => {
       userInfo.setAvatar(res.avatar);
+      avatarModal.close();
       avatarForm.reset();
-
-      updateAvatar.close();
     })
-    .catch((err) => {});
+    .catch((err) => {
+      console.error(err);
+    })
+    .finally(() => {
+      avatarModal.setLoading(false);
+    });
 });
+
 avatarModal.setEventListeners();
 
 const openAvatarButton = document.querySelector(".profile__image-btn");
