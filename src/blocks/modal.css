@@ -156,6 +156,9 @@
     margin-bottom: 45px;
     font-size: 14px;
   }
+  .modal__button_confirm {
+    margin-top: 31px;
+  }
 
   .modal__close {
     width: 26px;
@@ -179,8 +182,8 @@
   }
   .modal__deleteimg {
     width: 282px;
-    height: 322px;
-    margin-top: 6px;
+    height: auto;
+    margin-top: -168px;
     margin-right: 15px;
   }
 }

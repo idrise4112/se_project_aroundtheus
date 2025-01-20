@@ -37,8 +37,8 @@ class ModalWithForm extends Modal {
     this._modalForm.addEventListener("submit", (evt) => {
       evt.preventDefault(); // Prevent the default form submission
       const formData = this.getInputValues();
-      this._handleFormSubmit(formData); // Correctly pass formData to the submission handler
-      this._modalForm.reset();
+      this._handleFormSubmit(formData); // Correctly pass formData to the submission handler, also you can send the modalForm
+      //this._modalForm.reset(); // looks like you're doing double reset
     });
 
     super.setEventListeners();
