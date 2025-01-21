@@ -73,6 +73,7 @@ api
   })
   .catch((err) => console.error(err));
 
+// Handle profile edit submit
 function handleProfileEditSubmit(formValues) {
   const nameInput = formValues.title;
   const descriptionInput = formValues.description;
@@ -88,6 +89,7 @@ function handleProfileEditSubmit(formValues) {
       });
       profileModal.close();
     })
+    .catch((err) => console.error(err))
     .finally(() => {
       profileModal.setLoading(false);
     });
@@ -108,6 +110,7 @@ function handleAddCardSubmit(inputValues) {
       addCardFormElement.reset();
       addCardValidator.disableButton();
     })
+    .catch((err) => console.error(err))
     .finally(() => {
       addModal.setLoading(false);
     });
@@ -136,6 +139,7 @@ const avatarModal = new ModalWithForm("#avatar-modal", ({ url }) => {
       avatarModal.close();
       avatarForm.reset();
     })
+    .catch((err) => console.error(err)) // Catch block placed here
     .finally(() => {
       avatarModal.setLoading(false);
     });
