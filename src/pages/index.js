@@ -117,7 +117,7 @@ function handleAddCardSubmit(inputValues) {
 }
 
 function handleLikeClick(card) {
-  if (card._isLiked) {
+  if (card.isLiked) {
     api
       .dislikeCard(card._id)
       .then(() => card.toggleLikeIcon())
