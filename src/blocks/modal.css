@@ -63,6 +63,14 @@
   background-size: contain;
 }
 
+.modal__deleteimg {
+  width: 430px;
+  height: 181px;
+  top: 290px;
+  position: absolute;
+  margin-top: -6px;
+}
+
 .modal__form {
   flex-direction: column;
   display: flex;
@@ -77,6 +85,10 @@
   cursor: pointer;
   border: none;
   font-size: 18px;
+}
+
+.modal__button_confirm {
+  margin-top: -20px;
 }
 
 .modal__preview-image {
@@ -121,6 +133,11 @@
   border-bottom: 1px solid rgb(224, 12, 12);
 }
 
+.modal__avatar {
+  width: 430px;
+  height: 272px;
+}
+
 @media screen and (max-width: 765px) {
   .modal__container {
     width: 282px;
@@ -138,6 +155,9 @@
     height: 46px;
     margin-bottom: 45px;
     font-size: 14px;
+  }
+  .modal__button_confirm {
+    margin-top: 31px;
   }
 
   .modal__close {
@@ -159,6 +179,11 @@
     height: 299px;
     margin-top: -33px;
     margin-left: -15px;
+  }
+  .modal__deleteimg {
+    width: 282px;
+    height: auto;
+    margin-top: -168px;
   }
 }
 .title {

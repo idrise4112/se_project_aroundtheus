@@ -16,11 +16,46 @@
       </header>
       <main class="content">
         <section class="profile page__section">
-          <img
-            src="<%=require('./images/jacques.png')%>"
-            alt="avatar jacques"
-            class="profile__image"
-          />
+          <div class="profile__image-container">
+            <img src="" alt="profile__image" class="profile__image" />
+            <button
+              type="button"
+              aria-label="Change Profile Image"
+              class="profile__image-btn"
+            ></button>
+          </div>
+          <div class="profile__info">
+            <div class="modal" id="avatar-modal">
+              <div class="modal__container modal__avatar">
+                <button
+                  class="modal__close"
+                  type="button"
+                  id="avatar-add-button"
+                  title="add avatar"
+                ></button>
+                <form class="modal__form" id="avatar-form">
+                  <p class="modal__heading">Change profile picture</p>
+                  <label class="modal__label">
+                    <input
+                      type="url"
+                      name="url"
+                      id="avatar-picture"
+                      class="modal__input modal__input_type_url"
+                      placeholder="Avatar URL"
+                      required
+                    />
+                    <span class="modal__error" id="avatar-picture-error"></span>
+                  </label>
+                  <button
+                    type="submit"
+                    class="modal__button modal__button_disabled"
+                  >
+                    <span class="modal__button-text">Save</span>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
             <button
@@ -47,7 +82,11 @@
     </div>
     <div class="modal" id="profile-edit-modal">
       <div class="modal__container">
-        <button type="button" aria-label="close modal"class="modal__close"></button>
+        <button
+          type="button"
+          aria-label="close modal"
+          class="modal__close"
+        ></button>
         <p class="modal__heading">Edit profile</p>
         <form class="modal__form">
           <label class="modal__label">
@@ -79,17 +118,43 @@
               id="profile-description-input-error"
             ></span>
           </label>
-          <button type="submit"class="modal__button modal__button_disabled">Save</button>
+          <button type="submit" class="modal__button modal__button_disabled">
+            Save
+          </button>
         </form>
       </div>
     </div>
     <div class="modal modal_preview" id="modal-preview">
       <div class="modal__container modal__preview-image">
-        <button  type="button"aria-label="close modal" class="modal__close modal__close-image"></button>
+        <button
+          type="button"
+          aria-label="close modal"
+          class="modal__close modal__close-image"
+        ></button>
         <img src="" alt="" class="modal__image" />
         <p class="modal__caption"></p>
       </div>
     </div>
+    <div id="delete-modal" class="modal modal__delete">
+      <div class="modal__container modal__deleteimg">
+        <form class="modal__form">
+          <p class="modal__heading">Are you sure?</p>
+          <button
+            type="button"
+            aria-label="close modal"
+            class="modal__close"
+          ></button>
+          <button
+            id="confirmDelete"
+            type="submit"
+            class="modal__button modal__button_confirm"
+          >
+            Yes
+          </button>
+        </form>
+      </div>
+    </div>
+
     <div class="modal" id="add-new-card-modal">
       <div class="modal__container">
         <button aria-label="close modal" class="modal__close"></button>
@@ -121,28 +186,27 @@
               class="modal__error"
               id="profile-add-description-input-error"
             ></span>
-           
           </label>
-          <button type="submit"
-          id="add-modal-button"
-          class="modal__button modal__button_disabled"
-          disabled
-        >
-          Create
-        </button>
+          <button
+            type="submit"
+            id="add-modal-button"
+            class="modal__button modal__button_disabled"
+            disabled
+          >
+            Create
+          </button>
         </form>
       </div>
-      </div>
-      <template id="card-template">
-        <li class="card">
-          <img src="" alt="" class="card__image" />
-          <div class="card__description">
-            <h2 class="card__title"></h2>
-            <button class="card__like-button"></button>
-            <button class="card__delete-button"></button>
-          </div>
-        </li>
-      </template>
     </div>
+    <template id="card-template">
+      <li class="card">
+        <img src="" alt="" class="card__image" />
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button class="card__like-button"></button>
+          <button id="card-delete" class="card__delete-button"></button>
+        </div>
+      </li>
+    </template>
   </body>
 </html>
