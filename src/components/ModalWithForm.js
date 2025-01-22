@@ -18,10 +18,6 @@ class ModalWithForm extends Modal {
     }
   }
 
-  close() {
-    super.close();
-  }
-
   getInputValues() {
     const inputs = this._modalForm.querySelectorAll("input");
     const values = {};

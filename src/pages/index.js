@@ -138,12 +138,16 @@ const avatarModal = new ModalWithForm("#avatar-modal", ({ url }) => {
       userInfo.setAvatar(res.avatar);
       avatarModal.close();
       avatarForm.reset();
+      avatarFormValidator.disableButton(); // Disable the save button after submission
     })
-    .catch((err) => console.error(err)) // Catch block placed here
+    .catch((err) => console.error(err))
     .finally(() => {
       avatarModal.setLoading(false);
     });
 });
+
+avatarModal.setEventListeners();
+openAvatarButton.addEventListener("click", () => avatarModal.open());
 
 avatarModal.setEventListeners();
 openAvatarButton.addEventListener("click", () => avatarModal.open());
